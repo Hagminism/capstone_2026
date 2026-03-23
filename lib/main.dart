@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'feature/authentication/presentation/authentication_screen_root.dart';
+import 'core/routing/router.dart';
 import 'ui/app_colors.dart';
 
 void main() {
@@ -12,7 +12,7 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Reservation Hub',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -25,7 +25,7 @@ class App extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      home: const AuthenticationScreenRoot(),
+      routerConfig: router,
     );
   }
 }
