@@ -6,40 +6,31 @@ import 'sign_up_screen.dart';
 import 'sign_up_view_model.dart';
 
 class SignUpScreenRoot extends StatefulWidget {
-  const SignUpScreenRoot({super.key});
+  final SignUpViewModel viewModel;
+
+  const SignUpScreenRoot({
+    super.key,
+    required this.viewModel,
+  });
 
   @override
   State<SignUpScreenRoot> createState() => _SignUpScreenRootState();
 }
 
 class _SignUpScreenRootState extends State<SignUpScreenRoot> {
-  late final SignUpViewModel _viewModel;
-
-  @override
-  void initState() {
-    super.initState();
-    _viewModel = SignUpViewModel();
-  }
-
-  @override
-  void dispose() {
-    _viewModel.dispose();
-    super.dispose();
-  }
-
   @override
   Widget build(BuildContext context) {
     return ListenableBuilder(
-      listenable: _viewModel,
+      listenable: widget.viewModel,
       builder: (context, child) {
         return SignUpScreen(
-          state: _viewModel.state,
-          onNameChanged: _viewModel.onNameChanged,
-          onEmailChanged: _viewModel.onEmailChanged,
-          onPasswordChanged: _viewModel.onPasswordChanged,
-          onPasswordConfirmChanged: _viewModel.onPasswordConfirmChanged,
-          onTermsChanged: _viewModel.onTermsChanged,
-          onSubmit: _viewModel.submitSignUp,
+          state: widget.viewModel.state,
+          onNameChanged: widget.viewModel.onNameChanged,
+          onEmailChanged: widget.viewModel.onEmailChanged,
+          onPasswordChanged: widget.viewModel.onPasswordChanged,
+          onPasswordConfirmChanged: widget.viewModel.onPasswordConfirmChanged,
+          onTermsChanged: widget.viewModel.onTermsChanged,
+          onSubmit: widget.viewModel.submitSignUp,
           onSignInTap: () => context.go(Routes.signIn),
         );
       },

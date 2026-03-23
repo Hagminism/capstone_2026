@@ -1,7 +1,10 @@
 import 'package:capstone_2026/core/presentation/component/custom_bottom_app_bar.dart';
 import 'package:capstone_2026/core/routing/routes.dart';
+import 'package:capstone_2026/di/di_setup.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/sign_in_screen_root.dart';
+import 'package:capstone_2026/feature/sign_in/presentation/sign_in_view_model.dart';
 import 'package:capstone_2026/feature/sign_up/presentation/sign_up_screen_root.dart';
+import 'package:capstone_2026/feature/sign_up/presentation/sign_up_view_model.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
@@ -10,11 +13,15 @@ final router = GoRouter(
   routes: [
     GoRoute(
       path: Routes.signIn,
-      builder: (context, state) => const SignInScreenRoot(),
+      builder: (context, state) => SignInScreenRoot(
+        viewModel: getIt<SignInViewModel>(),
+      ),
     ),
     GoRoute(
       path: Routes.signup,
-      builder: (context, state) => const SignUpScreenRoot(),
+      builder: (context, state) => SignUpScreenRoot(
+        viewModel: getIt<SignUpViewModel>(),
+      ),
     ),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
