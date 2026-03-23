@@ -1,7 +1,7 @@
+import 'package:capstone_2026/ui/app_colors.dart';
+import 'package:capstone_2026/ui/text_styles.dart';
 import 'package:flutter/material.dart';
 
-import '../../../ui/app_colors.dart';
-import '../../../ui/text_styles.dart';
 import 'sign_in_state.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -10,6 +10,7 @@ class SignInScreen extends StatelessWidget {
     required this.onEmailChanged,
     required this.onPasswordChanged,
     required this.onSubmit,
+    required this.onSignUpTap,
     super.key,
   });
 
@@ -17,6 +18,7 @@ class SignInScreen extends StatelessWidget {
   final ValueChanged<String> onEmailChanged;
   final ValueChanged<String> onPasswordChanged;
   final VoidCallback onSubmit;
+  final VoidCallback onSignUpTap;
 
   @override
   Widget build(BuildContext context) {
@@ -130,7 +132,7 @@ class SignInScreen extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             TextButton(
-                              onPressed: () {},
+                              onPressed: onSignUpTap,
                               child: const Text('회원가입'),
                             ),
                             const Text('|', style: AppTextStyles.subtitle),
