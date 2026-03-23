@@ -1,4 +1,6 @@
+import 'package:capstone_2026/core/routing/routes.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import 'sign_in_screen.dart';
 import 'sign_in_view_model.dart';
@@ -35,6 +37,7 @@ class _SignInScreenRootState extends State<SignInScreenRoot> {
           onEmailChanged: _viewModel.onEmailChanged,
           onPasswordChanged: _viewModel.onPasswordChanged,
           onSubmit: _viewModel.submitLogin,
+          onSignUpTap: () => context.go(Routes.signup),
         );
       },
     );
