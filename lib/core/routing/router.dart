@@ -1,6 +1,7 @@
 import 'package:capstone_2026/core/presentation/component/custom_bottom_app_bar.dart';
 import 'package:capstone_2026/core/routing/routes.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/sign_in_screen_root.dart';
+import 'package:capstone_2026/feature/sign_up/presentation/sign_up_screen_root.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
@@ -10,6 +11,10 @@ final router = GoRouter(
     GoRoute(
       path: Routes.signIn,
       builder: (context, state) => const SignInScreenRoot(),
+    ),
+    GoRoute(
+      path: Routes.signup,
+      builder: (context, state) => const SignUpScreenRoot(),
     ),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
