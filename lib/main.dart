@@ -1,9 +1,11 @@
+import 'package:capstone_2026/di/di_setup.dart';
 import 'package:flutter/material.dart';
 
 import 'core/routing/router.dart';
 import 'ui/app_colors.dart';
 
 void main() {
+  diSetup();
   runApp(const App());
 }
 
