@@ -1,11 +1,11 @@
 import 'package:flutter/foundation.dart';
 
-import 'authentication_state.dart';
+import 'sign_in_state.dart';
 
-class AuthenticationViewModel extends ChangeNotifier {
-  AuthenticationState _state = const AuthenticationState();
+class SignInViewModel extends ChangeNotifier {
+  SignInState _state = const SignInState();
 
-  AuthenticationState get state => _state;
+  SignInState get state => _state;
 
   void onEmailChanged(String value) {
     _state = _state.copyWith(email: value, errorMessage: null);

@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
-import 'authentication_screen.dart';
-import 'authentication_view_model.dart';
+import 'sign_in_screen.dart';
+import 'sign_in_view_model.dart';
 
-class AuthenticationScreenRoot extends StatefulWidget {
-  const AuthenticationScreenRoot({super.key});
+class SignInScreenRoot extends StatefulWidget {
+  const SignInScreenRoot({super.key});
 
   @override
-  State<AuthenticationScreenRoot> createState() => _AuthenticationScreenRootState();
+  State<SignInScreenRoot> createState() => _SignInScreenRootState();
 }
 
-class _AuthenticationScreenRootState extends State<AuthenticationScreenRoot> {
-  late final AuthenticationViewModel _viewModel;
+class _SignInScreenRootState extends State<SignInScreenRoot> {
+  late final SignInViewModel _viewModel;
 
   @override
   void initState() {
     super.initState();
-    _viewModel = AuthenticationViewModel();
+    _viewModel = SignInViewModel();
   }
 
   @override
@@ -30,7 +30,7 @@ class _AuthenticationScreenRootState extends State<AuthenticationScreenRoot> {
     return ListenableBuilder(
       listenable: _viewModel,
       builder: (context, child) {
-        return AuthenticationScreen(
+        return SignInScreen(
           state: _viewModel.state,
           onEmailChanged: _viewModel.onEmailChanged,
           onPasswordChanged: _viewModel.onPasswordChanged,

@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import '../../../ui/app_colors.dart';
 import '../../../ui/text_styles.dart';
-import 'authentication_state.dart';
+import 'sign_in_state.dart';
 
-class AuthenticationScreen extends StatelessWidget {
-  const AuthenticationScreen({
+class SignInScreen extends StatelessWidget {
+  const SignInScreen({
     required this.state,
     required this.onEmailChanged,
     required this.onPasswordChanged,
@@ -13,7 +13,7 @@ class AuthenticationScreen extends StatelessWidget {
     super.key,
   });
 
-  final AuthenticationState state;
+  final SignInState state;
   final ValueChanged<String> onEmailChanged;
   final ValueChanged<String> onPasswordChanged;
   final VoidCallback onSubmit;

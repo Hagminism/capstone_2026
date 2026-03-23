@@ -1,18 +1,18 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'authentication_state.freezed.dart';
+part 'sign_in_state.freezed.dart';
 
 @freezed
-abstract class AuthenticationState with _$AuthenticationState {
-  const factory AuthenticationState({
+abstract class SignInState with _$SignInState {
+  const SignInState._();
+
+  const factory SignInState({
     @Default('') String email,
     @Default('') String password,
     @Default(false) bool isSubmitting,
     String? errorMessage,
-  }) = _AuthenticationState;
-}
+  }) = _SignInState;
 
-extension AuthenticationStateX on AuthenticationState {
   bool get canSubmit {
     return email.trim().isNotEmpty && password.trim().isNotEmpty && !isSubmitting;
   }
