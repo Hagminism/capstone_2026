@@ -5,6 +5,8 @@ import 'package:capstone_2026/feature/find_password/presentation/find_password_s
 import 'package:capstone_2026/feature/find_password/presentation/find_password_view_model.dart';
 import 'package:capstone_2026/feature/home/presentation/screen/home_screen.dart';
 import 'package:capstone_2026/feature/my_page/presentation/screen/my_page_screen.dart';
+import 'package:capstone_2026/feature/my_page/presentation/screen/edit_profile_screen.dart';
+import 'package:capstone_2026/feature/saved/presentation/screen/saved_screen.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/sign_in_screen_root.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/sign_in_view_model.dart';
 import 'package:capstone_2026/feature/sign_up_partner/presentation/sign_up_partner_screen_root.dart';
@@ -76,8 +78,7 @@ final router = GoRouter(
           routes: [
             GoRoute(
               path: Routes.saved,
-              builder: (context, state) =>
-                  const Placeholder(color: Colors.tealAccent),
+              builder: (context, state) => const SavedScreen(),
             ),
           ],
         ),
@@ -89,11 +90,7 @@ final router = GoRouter(
               routes: [
                 GoRoute(
                   path: Routes.profileEdit,
-                  builder: (context, state) => const Scaffold(
-                    body: SafeArea(
-                      child: Center(child: Text('프로필 수정 페이지')),
-                    ),
-                  ),
+                  builder: (context, state) => const EditProfileScreen(),
                 ),
                 GoRoute(
                   path: Routes.reservationHistory,
