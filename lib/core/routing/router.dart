@@ -18,10 +18,29 @@ final router = GoRouter(
       ),
     ),
     GoRoute(
-      path: Routes.signup,
-      builder: (context, state) => SignUpScreenRoot(
-        viewModel: getIt<SignUpViewModel>(),
-      ),
+      path: Routes.signUp,
+      routes: [
+        GoRoute(
+          path: Routes.signUpType,
+          builder: (context, state) => const Scaffold(
+            body: Placeholder(),
+          ),
+          routes: [
+            GoRoute(
+              path: Routes.signUpUser,
+              builder: (context, state) => SignUpScreenRoot(
+                viewModel: getIt<SignUpViewModel>(),
+              ),
+            ),
+            GoRoute(
+              path: Routes.signUpPartner,
+              builder: (context, state) => const Scaffold(
+                body: Placeholder(),
+              ),
+            ),
+          ],
+        ),
+      ],
     ),
     StatefulShellRoute.indexedStack(
       builder: (context, state, navigationShell) {
