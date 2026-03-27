@@ -37,7 +37,7 @@ class AppBarNavItem extends StatelessWidget {
               icon,
               color: (navigationShell.currentIndex == index)
                   ? AppColors.primary
-                  : Colors.white,
+                  : const Color(0xFF9CA3AF),
               size: 28,
             ),
             Text(
@@ -45,7 +45,7 @@ class AppBarNavItem extends StatelessWidget {
               style: AppTextStyles.label.copyWith(
                 color: (navigationShell.currentIndex == index)
                     ? AppColors.primary
-                    : Colors.white,
+                    : const Color(0xFF9CA3AF),
                 fontSize: 12,
                 fontWeight: FontWeight.w500,
               ),

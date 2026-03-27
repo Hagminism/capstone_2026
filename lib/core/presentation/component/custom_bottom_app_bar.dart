@@ -34,7 +34,6 @@ class CustomBottomAppBar extends StatelessWidget {
               icon: Icons.map_outlined,
               label: '지도',
             ),
-            const SizedBox(width: 24),
             AppBarNavItem(
               navigationShell: navigationShell,
               index: 2,
