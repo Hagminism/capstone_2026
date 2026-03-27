@@ -17,34 +17,18 @@ class SignInViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> submitLogin() async {
+  Future<bool> submitLogin() async {
     if (!_state.canSubmit) {
-      return;
-    }
-
-    if (!_isValidEmail(_state.email)) {
-      _state = _state.copyWith(errorMessage: '올바른 이메일 형식을 입력해 주세요.');
-      notifyListeners();
-      return;
-    }
-
-    if (_state.password.length < 6) {
-      _state = _state.copyWith(errorMessage: '비밀번호는 6자 이상이어야 합니다.');
-      notifyListeners();
-      return;
+      return false;
     }
 
     _state = _state.copyWith(isSubmitting: true, errorMessage: null);
     notifyListeners();
 
-    await Future<void>.delayed(const Duration(milliseconds: 800));
+    await Future<void>.delayed(const Duration(milliseconds: 300));
 
     _state = _state.copyWith(isSubmitting: false, errorMessage: null);
     notifyListeners();
-  }
-
-  bool _isValidEmail(String value) {
-    final pattern = RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$');
-    return pattern.hasMatch(value.trim());
+    return true;
   }
 }

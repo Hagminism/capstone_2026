@@ -18,6 +18,16 @@ class SignInScreenRoot extends StatefulWidget {
 }
 
 class _SignInScreenRootState extends State<SignInScreenRoot> {
+  Future<void> _onSubmit() async {
+    final success = await widget.viewModel.submitLogin();
+    if (!mounted) {
+      return;
+    }
+    if (success) {
+      context.go(Routes.home);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListenableBuilder(
@@ -27,7 +37,7 @@ class _SignInScreenRootState extends State<SignInScreenRoot> {
           state: widget.viewModel.state,
           onEmailChanged: widget.viewModel.onEmailChanged,
           onPasswordChanged: widget.viewModel.onPasswordChanged,
-          onSubmit: widget.viewModel.submitLogin,
+          onSubmit: _onSubmit,
           onSignUpTap: () => context.go('${Routes.signIn}/${Routes.signUpType}'),
           onFindPasswordTap: () =>
               context.go('${Routes.signIn}/${Routes.findPassword}'),
