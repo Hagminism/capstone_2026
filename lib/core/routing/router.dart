@@ -6,7 +6,8 @@ import 'package:capstone_2026/feature/find_password/presentation/find_password_v
 import 'package:capstone_2026/feature/home/presentation/screen/home_screen.dart';
 import 'package:capstone_2026/feature/my_page/presentation/screen/my_page_screen.dart';
 import 'package:capstone_2026/feature/my_page/presentation/screen/edit_profile_screen.dart';
-import 'package:capstone_2026/feature/saved/presentation/screen/saved_screen.dart';
+import 'package:capstone_2026/feature/bookmark/presentation/screen/bookmark_screen.dart';
+import 'package:capstone_2026/feature/bookmark_store_detail/presentation/screen/bookmark_store_detail_screen.dart';
 import 'package:capstone_2026/feature/store_detail/presentation/screen/store_detail_screen.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/sign_in_screen_root.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/sign_in_view_model.dart';
@@ -86,8 +87,16 @@ final router = GoRouter(
         StatefulShellBranch(
           routes: [
             GoRoute(
-              path: Routes.saved,
-              builder: (context, state) => const SavedScreen(),
+              path: Routes.bookmark,
+              builder: (context, state) => const BookmarkScreen(),
+              routes: [
+                GoRoute(
+                  path: Routes.bookmarkStoreDetail,
+                  builder: (context, state) => BookmarkStoreDetailScreen(
+                    storeId: state.pathParameters['storeId'] ?? '',
+                  ),
+                ),
+              ],
             ),
           ],
         ),

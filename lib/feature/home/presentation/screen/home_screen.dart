@@ -67,7 +67,7 @@ class HomeScreen extends StatelessWidget {
                             child: ListView.separated(
                               scrollDirection: Axis.horizontal,
                               itemCount: _categories.length,
-                              separatorBuilder: (_, __) =>
+                              separatorBuilder: (_, _) =>
                                   const SizedBox(width: 10),
                               itemBuilder: (context, index) {
                                 final item = _categories[index];
@@ -107,7 +107,7 @@ class HomeScreen extends StatelessWidget {
                     onTap: () => context.go('${Routes.home}/store/${item.storeId}'),
                   );
                 },
-                separatorBuilder: (_, __) => const SizedBox(height: 12),
+                separatorBuilder: (_, _) => const SizedBox(height: 12),
               ),
             ),
           ],

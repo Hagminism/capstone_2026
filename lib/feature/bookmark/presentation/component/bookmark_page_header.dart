@@ -2,8 +2,8 @@ import 'package:capstone_2026/ui/app_colors.dart';
 import 'package:capstone_2026/ui/text_styles.dart';
 import 'package:flutter/material.dart';
 
-class SavedPageHeader extends StatelessWidget {
-  const SavedPageHeader({super.key});
+class BookmarkPageHeader extends StatelessWidget {
+  const BookmarkPageHeader({super.key});
 
   @override
   Widget build(BuildContext context) {

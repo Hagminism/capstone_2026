@@ -1,8 +1,8 @@
 import 'package:capstone_2026/ui/app_colors.dart';
 import 'package:flutter/material.dart';
 
-class SavedEmptyState extends StatelessWidget {
-  const SavedEmptyState({
+class BookmarkEmptyState extends StatelessWidget {
+  const BookmarkEmptyState({
     required this.onExploreTap,
     super.key,
   });
