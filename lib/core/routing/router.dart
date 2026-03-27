@@ -93,8 +93,57 @@ final router = GoRouter(
           routes: [
             GoRoute(
               path: Routes.myPage,
-              builder: (context, state) =>
-                  const Placeholder(color: Colors.green),
+              builder: (context, state) => const MyPageScreen(),
+              routes: [
+                GoRoute(
+                  path: Routes.profileEdit,
+                  builder: (context, state) => const Scaffold(
+                    body: SafeArea(
+                      child: Center(child: Text('프로필 수정 페이지')),
+                    ),
+                  ),
+                ),
+                GoRoute(
+                  path: Routes.reservationHistory,
+                  builder: (context, state) => const Scaffold(
+                    body: SafeArea(
+                      child: Center(child: Text('이용 내역 페이지')),
+                    ),
+                  ),
+                ),
+                GoRoute(
+                  path: Routes.reviewHistory,
+                  builder: (context, state) => const Scaffold(
+                    body: SafeArea(
+                      child: Center(child: Text('리뷰 내역 페이지')),
+                    ),
+                  ),
+                ),
+                GoRoute(
+                  path: Routes.notificationSettings,
+                  builder: (context, state) => const Scaffold(
+                    body: SafeArea(
+                      child: Center(child: Text('알림 설정 페이지')),
+                    ),
+                  ),
+                ),
+                GoRoute(
+                  path: Routes.notices,
+                  builder: (context, state) => const Scaffold(
+                    body: SafeArea(
+                      child: Center(child: Text('공지사항 페이지')),
+                    ),
+                  ),
+                ),
+                GoRoute(
+                  path: Routes.terms,
+                  builder: (context, state) => const Scaffold(
+                    body: SafeArea(
+                      child: Center(child: Text('이용약관 페이지')),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
