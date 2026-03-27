@@ -1,8 +1,8 @@
 import 'package:capstone_2026/ui/app_colors.dart';
 import 'package:flutter/material.dart';
 
-class SavedFilterChips extends StatelessWidget {
-  const SavedFilterChips({
+class BookmarkFilterChips extends StatelessWidget {
+  const BookmarkFilterChips({
     required this.filters,
     required this.selectedFilter,
     required this.onFilterSelected,

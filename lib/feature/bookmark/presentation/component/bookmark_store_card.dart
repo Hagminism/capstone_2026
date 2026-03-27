@@ -2,8 +2,8 @@ import 'package:capstone_2026/ui/app_colors.dart';
 import 'package:capstone_2026/ui/text_styles.dart';
 import 'package:flutter/material.dart';
 
-class SavedStoreCard extends StatelessWidget {
-  const SavedStoreCard({
+class BookmarkStoreCard extends StatelessWidget {
+  const BookmarkStoreCard({
     required this.name,
     required this.category,
     required this.subtitle,
