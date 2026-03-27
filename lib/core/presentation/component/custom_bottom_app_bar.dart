@@ -1,5 +1,4 @@
 import 'package:capstone_2026/core/presentation/component/app_bar_nav_item.dart';
-import 'package:capstone_2026/ui/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -17,8 +16,8 @@ class CustomBottomAppBar extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: navigationShell,
       bottomNavigationBar: BottomAppBar(
-        shape: const CircularNotchedRectangle(), // 노치 모양 생성
-        notchMargin: 8.0, // 노치와 floatingActionButton 사이의 간격
+        // shape: const CircularNotchedRectangle(), // 노치 모양 생성
+        // notchMargin: 8.0, // 노치와 floatingActionButton 사이의 간격
         color: Colors.white,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -26,21 +25,21 @@ class CustomBottomAppBar extends StatelessWidget {
             AppBarNavItem(
               navigationShell: navigationShell,
               index: 0,
-              icon: Icons.calendar_month_outlined,
-              label: '캘린더',
+              icon: Icons.home_outlined,
+              label: '홈',
             ),
             AppBarNavItem(
               navigationShell: navigationShell,
               index: 1,
-              icon: Icons.bar_chart,
-              label: '기간별',
+              icon: Icons.map_outlined,
+              label: '지도',
             ),
             const SizedBox(width: 24),
             AppBarNavItem(
               navigationShell: navigationShell,
               index: 2,
-              icon: Icons.pie_chart_rounded,
-              label: '카테고리별',
+              icon: Icons.bookmark_border,
+              label: '저장',
             ),
             AppBarNavItem(
               navigationShell: navigationShell,
@@ -51,18 +50,18 @@ class CustomBottomAppBar extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: (navigationShell.currentIndex == 0)
-          ? FloatingActionButton(
-              onPressed: () {},
-              shape: CircleBorder(),
-              backgroundColor: AppColors.primary,
-              child: Icon(
-                Icons.add,
-                color: Colors.white,
-                size: 32,
-              ),
-            )
-          : null,
+      // floatingActionButton: (navigationShell.currentIndex == 0)
+      //     ? FloatingActionButton(
+      //         onPressed: () {},
+      //         shape: CircleBorder(),
+      //         backgroundColor: AppColors.primary,
+      //         child: Icon(
+      //           Icons.add,
+      //           color: Colors.white,
+      //           size: 32,
+      //         ),
+      //       )
+      //     : null,
     );
   }
 }

@@ -3,6 +3,7 @@ import 'package:capstone_2026/core/routing/routes.dart';
 import 'package:capstone_2026/di/di_setup.dart';
 import 'package:capstone_2026/feature/find_password/presentation/find_password_screen_root.dart';
 import 'package:capstone_2026/feature/find_password/presentation/find_password_view_model.dart';
+import 'package:capstone_2026/feature/home/presentation/screen/home_screen.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/sign_in_screen_root.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/sign_in_view_model.dart';
 import 'package:capstone_2026/feature/sign_up_partner/presentation/sign_up_partner_screen_root.dart';
@@ -57,7 +58,7 @@ final router = GoRouter(
           routes: [
             GoRoute(
               path: Routes.home,
-              builder: (context, state) => const Placeholder(color: Colors.red),
+              builder: (context, state) => const HomeScreen(),
             ),
           ],
         ),
