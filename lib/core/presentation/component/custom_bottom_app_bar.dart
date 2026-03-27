@@ -25,21 +25,21 @@ class CustomBottomAppBar extends StatelessWidget {
             AppBarNavItem(
               navigationShell: navigationShell,
               index: 0,
-              icon: Icons.calendar_month_outlined,
-              label: '캘린더',
+              icon: Icons.home_outlined,
+              label: '홈',
             ),
             AppBarNavItem(
               navigationShell: navigationShell,
               index: 1,
-              icon: Icons.bar_chart,
-              label: '기간별',
+              icon: Icons.map_outlined,
+              label: '지도',
             ),
             const SizedBox(width: 24),
             AppBarNavItem(
               navigationShell: navigationShell,
               index: 2,
-              icon: Icons.pie_chart_rounded,
-              label: '카테고리별',
+              icon: Icons.bookmark_border,
+              label: '저장',
             ),
             AppBarNavItem(
               navigationShell: navigationShell,
