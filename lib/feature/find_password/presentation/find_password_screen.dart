@@ -1,26 +1,22 @@
 import 'package:flutter/material.dart';
 
-import 'package:capstone_2026/ui/app_colors.dart';
-import 'package:capstone_2026/ui/text_styles.dart';
-import 'sign_in_state.dart';
+import '../../../ui/app_colors.dart';
+import '../../../ui/text_styles.dart';
+import 'find_password_state.dart';
 
-class SignInScreen extends StatelessWidget {
-  const SignInScreen({
+class FindPasswordScreen extends StatelessWidget {
+  const FindPasswordScreen({
     required this.state,
     required this.onEmailChanged,
-    required this.onPasswordChanged,
     required this.onSubmit,
-    required this.onSignUpTap,
-    required this.onFindPasswordTap,
+    required this.onSignInTap,
     super.key,
   });
 
-  final SignInState state;
+  final FindPasswordState state;
   final ValueChanged<String> onEmailChanged;
-  final ValueChanged<String> onPasswordChanged;
   final VoidCallback onSubmit;
-  final VoidCallback onSignUpTap;
-  final VoidCallback onFindPasswordTap;
+  final VoidCallback onSignInTap;
 
   @override
   Widget build(BuildContext context) {
@@ -58,10 +54,10 @@ class SignInScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Text('로그인', style: AppTextStyles.headline),
+                        const Text('비밀번호 찾기', style: AppTextStyles.headline),
                         const SizedBox(height: 8),
                         const Text(
-                          '예약 서비스를 시작하려면 계정에 로그인해 주세요.',
+                          '가입한 이메일을 입력하면 비밀번호 재설정 안내를 보내드려요.',
                           style: AppTextStyles.subtitle,
                         ),
                         const SizedBox(height: 24),
@@ -75,17 +71,6 @@ class SignInScreen extends StatelessWidget {
                             icon: Icons.alternate_email_rounded,
                           ),
                         ),
-                        const SizedBox(height: 16),
-                        const Text('비밀번호', style: AppTextStyles.label),
-                        const SizedBox(height: 8),
-                        TextField(
-                          obscureText: true,
-                          onChanged: onPasswordChanged,
-                          decoration: _inputDecoration(
-                            hintText: '비밀번호를 입력해 주세요.',
-                            icon: Icons.lock_outline_rounded,
-                          ),
-                        ),
                         if (state.errorMessage != null) ...[
                           const SizedBox(height: 12),
                           Text(
@@ -94,6 +79,17 @@ class SignInScreen extends StatelessWidget {
                               color: AppColors.danger,
                               fontSize: 13,
                               fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                        if (state.successMessage != null) ...[
+                          const SizedBox(height: 12),
+                          Text(
+                            state.successMessage!,
+                            style: const TextStyle(
+                              color: Color(0xFF0F766E),
+                              fontSize: 13,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ],
@@ -121,7 +117,7 @@ class SignInScreen extends StatelessWidget {
                                     ),
                                   )
                                 : const Text(
-                                    '로그인',
+                                    '재설정 메일 보내기',
                                     style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w700,
@@ -130,19 +126,12 @@ class SignInScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 12),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            TextButton(
-                              onPressed: onSignUpTap,
-                              child: const Text('회원가입'),
-                            ),
-                            const Text('|', style: AppTextStyles.subtitle),
-                            TextButton(
-                              onPressed: onFindPasswordTap,
-                              child: const Text('비밀번호 찾기'),
-                            ),
-                          ],
+                        Align(
+                          alignment: Alignment.center,
+                          child: TextButton(
+                            onPressed: onSignInTap,
+                            child: const Text('로그인으로 돌아가기'),
+                          ),
                         ),
                       ],
                     ),

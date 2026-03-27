@@ -1,26 +1,36 @@
 import 'package:flutter/material.dart';
 
-import 'package:capstone_2026/ui/app_colors.dart';
-import 'package:capstone_2026/ui/text_styles.dart';
-import 'sign_in_state.dart';
+import '../../../ui/app_colors.dart';
+import '../../../ui/text_styles.dart';
+import 'sign_up_partner_state.dart';
 
-class SignInScreen extends StatelessWidget {
-  const SignInScreen({
+class SignUpPartnerScreen extends StatelessWidget {
+  const SignUpPartnerScreen({
     required this.state,
+    required this.onNameChanged,
     required this.onEmailChanged,
     required this.onPasswordChanged,
+    required this.onPasswordConfirmChanged,
+    required this.onStoreNameChanged,
+    required this.onBusinessRegistrationNumberChanged,
+    required this.onStoreLocationChanged,
+    required this.onTermsChanged,
     required this.onSubmit,
-    required this.onSignUpTap,
-    required this.onFindPasswordTap,
+    required this.onSignInTap,
     super.key,
   });
 
-  final SignInState state;
+  final SignUpPartnerState state;
+  final ValueChanged<String> onNameChanged;
   final ValueChanged<String> onEmailChanged;
   final ValueChanged<String> onPasswordChanged;
+  final ValueChanged<String> onPasswordConfirmChanged;
+  final ValueChanged<String> onStoreNameChanged;
+  final ValueChanged<String> onBusinessRegistrationNumberChanged;
+  final ValueChanged<String> onStoreLocationChanged;
+  final ValueChanged<bool> onTermsChanged;
   final VoidCallback onSubmit;
-  final VoidCallback onSignUpTap;
-  final VoidCallback onFindPasswordTap;
+  final VoidCallback onSignInTap;
 
   @override
   Widget build(BuildContext context) {
@@ -58,13 +68,23 @@ class SignInScreen extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        const Text('로그인', style: AppTextStyles.headline),
+                        const Text('파트너 회원가입', style: AppTextStyles.headline),
                         const SizedBox(height: 8),
                         const Text(
-                          '예약 서비스를 시작하려면 계정에 로그인해 주세요.',
+                          '기본 정보와 업장 정보를 입력해 주세요.',
                           style: AppTextStyles.subtitle,
                         ),
                         const SizedBox(height: 24),
+                        const Text('이름', style: AppTextStyles.label),
+                        const SizedBox(height: 8),
+                        TextField(
+                          onChanged: onNameChanged,
+                          decoration: _inputDecoration(
+                            hintText: '이름을 입력해 주세요.',
+                            icon: Icons.person_outline_rounded,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
                         const Text('이메일', style: AppTextStyles.label),
                         const SizedBox(height: 8),
                         TextField(
@@ -86,8 +106,72 @@ class SignInScreen extends StatelessWidget {
                             icon: Icons.lock_outline_rounded,
                           ),
                         ),
+                        const SizedBox(height: 16),
+                        const Text('비밀번호 확인', style: AppTextStyles.label),
+                        const SizedBox(height: 8),
+                        TextField(
+                          obscureText: true,
+                          onChanged: onPasswordConfirmChanged,
+                          decoration: _inputDecoration(
+                            hintText: '비밀번호를 다시 입력해 주세요.',
+                            icon: Icons.verified_user_outlined,
+                          ),
+                        ),
+                        const SizedBox(height: 20),
+                        const Text('상호명', style: AppTextStyles.label),
+                        const SizedBox(height: 8),
+                        TextField(
+                          onChanged: onStoreNameChanged,
+                          decoration: _inputDecoration(
+                            hintText: '상호명을 입력해 주세요.',
+                            icon: Icons.storefront_outlined,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        const Text('사업자 등록번호', style: AppTextStyles.label),
+                        const SizedBox(height: 8),
+                        TextField(
+                          keyboardType: TextInputType.number,
+                          onChanged: onBusinessRegistrationNumberChanged,
+                          decoration: _inputDecoration(
+                            hintText: '숫자 10자리를 입력해 주세요.',
+                            icon: Icons.badge_outlined,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        const Text('매장 위치', style: AppTextStyles.label),
+                        const SizedBox(height: 8),
+                        TextField(
+                          onChanged: onStoreLocationChanged,
+                          decoration: _inputDecoration(
+                            hintText: '매장 위치를 입력해 주세요.',
+                            icon: Icons.location_on_outlined,
+                          ),
+                        ),
+                        const SizedBox(height: 12),
+                        InkWell(
+                          onTap: () => onTermsChanged(!state.agreeTerms),
+                          borderRadius: BorderRadius.circular(8),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 6),
+                            child: Row(
+                              children: [
+                                Checkbox(
+                                  value: state.agreeTerms,
+                                  onChanged: (value) => onTermsChanged(value ?? false),
+                                ),
+                                const Expanded(
+                                  child: Text(
+                                    '필수 약관에 동의합니다.',
+                                    style: AppTextStyles.body,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
                         if (state.errorMessage != null) ...[
-                          const SizedBox(height: 12),
+                          const SizedBox(height: 8),
                           Text(
                             state.errorMessage!,
                             style: const TextStyle(
@@ -97,7 +181,7 @@ class SignInScreen extends StatelessWidget {
                             ),
                           ),
                         ],
-                        const SizedBox(height: 20),
+                        const SizedBox(height: 16),
                         SizedBox(
                           width: double.infinity,
                           height: 50,
@@ -121,7 +205,7 @@ class SignInScreen extends StatelessWidget {
                                     ),
                                   )
                                 : const Text(
-                                    '로그인',
+                                    '파트너 회원가입',
                                     style: TextStyle(
                                       fontSize: 15,
                                       fontWeight: FontWeight.w700,
@@ -133,14 +217,10 @@ class SignInScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
+                            const Text('이미 계정이 있나요?', style: AppTextStyles.subtitle),
                             TextButton(
-                              onPressed: onSignUpTap,
-                              child: const Text('회원가입'),
-                            ),
-                            const Text('|', style: AppTextStyles.subtitle),
-                            TextButton(
-                              onPressed: onFindPasswordTap,
-                              child: const Text('비밀번호 찾기'),
+                              onPressed: onSignInTap,
+                              child: const Text('로그인'),
                             ),
                           ],
                         ),
