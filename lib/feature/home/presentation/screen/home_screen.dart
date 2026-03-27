@@ -1,3 +1,4 @@
+import 'package:capstone_2026/core/routing/routes.dart';
 import 'package:capstone_2026/feature/home/presentation/component/home_category_card.dart';
 import 'package:capstone_2026/feature/home/presentation/component/home_header.dart';
 import 'package:capstone_2026/feature/home/presentation/component/home_search_bar.dart';
@@ -6,6 +7,7 @@ import 'package:capstone_2026/feature/home/presentation/component/home_section_h
 import 'package:capstone_2026/feature/home/presentation/component/home_store_card.dart';
 import 'package:capstone_2026/ui/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -18,13 +20,13 @@ class HomeScreen extends StatelessWidget {
   ];
 
   static const List<_StoreCardItem> _recommendedStores = [
-    _StoreCardItem('라운지 파스타', '이탈리안 · 도보 8분', 4.8),
-    _StoreCardItem('블루보틀 타입 카페', '스페셜티 커피 · 도보 5분', 4.7),
-    _StoreCardItem('모던 헤어 스튜디오', '헤어/메이크업 · 도보 11분', 4.6),
-    _StoreCardItem('선셋 브런치 키친', '브런치 · 도보 6분', 4.9),
-    _StoreCardItem('리프레시 네일 라운지', '네일아트 · 도보 9분', 4.7),
-    _StoreCardItem('다온 스터디 라운지', '스터디카페 · 도보 13분', 4.5),
-    _StoreCardItem('어반 바버샵', '남성 헤어 · 도보 10분', 4.6),
+    _StoreCardItem('s1', '라운지 파스타', '이탈리안 · 도보 8분', 4.8),
+    _StoreCardItem('s2', '블루보틀 타입 카페', '스페셜티 커피 · 도보 5분', 4.7),
+    _StoreCardItem('s3', '모던 헤어 스튜디오', '헤어/메이크업 · 도보 11분', 4.6),
+    _StoreCardItem('s4', '선셋 브런치 키친', '브런치 · 도보 6분', 4.9),
+    _StoreCardItem('s5', '리프레시 네일 라운지', '네일아트 · 도보 9분', 4.7),
+    _StoreCardItem('s6', '다온 스터디 라운지', '스터디카페 · 도보 13분', 4.5),
+    _StoreCardItem('s7', '어반 바버샵', '남성 헤어 · 도보 10분', 4.6),
   ];
 
   @override
@@ -102,10 +104,7 @@ class HomeScreen extends StatelessWidget {
                     name: item.name,
                     subtitle: item.subtitle,
                     rating: item.rating,
-                    onTap: () => _showSoonMessage(
-                      context,
-                      '업장 상세 화면은 다음 스텝에서 연결할 예정입니다.',
-                    ),
+                    onTap: () => context.go('${Routes.home}/store/${item.storeId}'),
                   );
                 },
                 separatorBuilder: (_, __) => const SizedBox(height: 12),
@@ -133,7 +132,8 @@ class _HomeCategoryItem {
 }
 
 class _StoreCardItem {
-  const _StoreCardItem(this.name, this.subtitle, this.rating);
+  const _StoreCardItem(this.storeId, this.name, this.subtitle, this.rating);
+  final String storeId;
   final String name;
   final String subtitle;
   final double rating;
