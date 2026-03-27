@@ -10,13 +10,14 @@ class Routes {
   // Shell root
   static const String home = '/home';
   static const String map = '/map';
-  static const String saved = '/saved';
+  static const String bookmark = '/bookmark';
   static const String myPage = '/mypage';
 
   // Common nested paths
   static const String search = 'search';
   static const String notifications = 'notifications';
   static const String storeDetail = 'store/:storeId';
+  static const String bookmarkStoreDetail = 'store/:storeId';
 
   // My page nested paths
   static const String profileEdit = 'profile/edit';
