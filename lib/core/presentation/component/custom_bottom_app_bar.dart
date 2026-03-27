@@ -1,5 +1,4 @@
 import 'package:capstone_2026/core/presentation/component/app_bar_nav_item.dart';
-import 'package:capstone_2026/ui/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
