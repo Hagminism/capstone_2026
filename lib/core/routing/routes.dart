@@ -16,7 +16,7 @@ class Routes {
   // Common nested paths
   static const String search = 'search';
   static const String notifications = 'notifications';
-  static const String storeDetail = 'store/:storeId';
+  static const String homeStoreDetail = 'store/:storeId';
   static const String bookmarkStoreDetail = 'store/:storeId';
 
   // My page nested paths
