@@ -1,10 +1,11 @@
 class Routes {
   // Auth
   static const String signIn = '/sign-in';
-  // static const String signUp = '/signup';
+  static const String signUp = '/sign-up';
   static const String signUpType = 'type';
   static const String signUpUser = 'user';
   static const String signUpPartner = 'partner';
+  static const String findPassword = 'find-password';
 
   // Shell root
   static const String home = '/home';

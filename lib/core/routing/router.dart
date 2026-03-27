@@ -1,6 +1,8 @@
 import 'package:capstone_2026/core/presentation/component/custom_bottom_app_bar.dart';
 import 'package:capstone_2026/core/routing/routes.dart';
 import 'package:capstone_2026/di/di_setup.dart';
+import 'package:capstone_2026/feature/find_password/presentation/find_password_screen_root.dart';
+import 'package:capstone_2026/feature/find_password/presentation/find_password_view_model.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/sign_in_screen_root.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/sign_in_view_model.dart';
 import 'package:capstone_2026/feature/sign_up_partner/presentation/sign_up_partner_screen_root.dart';
@@ -20,6 +22,12 @@ final router = GoRouter(
         viewModel: getIt<SignInViewModel>(),
       ),
       routes: [
+        GoRoute(
+          path: Routes.findPassword,
+          builder: (context, state) => FindPasswordScreenRoot(
+            viewModel: getIt<FindPasswordViewModel>(),
+          ),
+        ),
         GoRoute(
           path: Routes.signUpType,
           builder: (context, state) => const SignUpTypeScreenRoot(),
