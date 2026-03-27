@@ -3,6 +3,8 @@ import 'package:capstone_2026/core/routing/routes.dart';
 import 'package:capstone_2026/di/di_setup.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/sign_in_screen_root.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/sign_in_view_model.dart';
+import 'package:capstone_2026/feature/sign_up_partner/presentation/sign_up_partner_screen_root.dart';
+import 'package:capstone_2026/feature/sign_up_partner/presentation/sign_up_partner_view_model.dart';
 import 'package:capstone_2026/feature/sign_up/presentation/sign_up_screen_root.dart';
 import 'package:capstone_2026/feature/sign_up/presentation/sign_up_view_model.dart';
 import 'package:capstone_2026/feature/sign_up_type/presentation/sign_up_type_screen_root.dart';
@@ -30,8 +32,8 @@ final router = GoRouter(
             ),
             GoRoute(
               path: Routes.signUpPartner,
-              builder: (context, state) => const Scaffold(
-                body: Placeholder(),
+              builder: (context, state) => SignUpPartnerScreenRoot(
+                viewModel: getIt<SignUpPartnerViewModel>(),
               ),
             ),
           ],
