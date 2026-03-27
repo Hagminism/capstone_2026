@@ -5,6 +5,7 @@ import 'package:capstone_2026/feature/sign_in/presentation/sign_in_screen_root.d
 import 'package:capstone_2026/feature/sign_in/presentation/sign_in_view_model.dart';
 import 'package:capstone_2026/feature/sign_up/presentation/sign_up_screen_root.dart';
 import 'package:capstone_2026/feature/sign_up/presentation/sign_up_view_model.dart';
+import 'package:capstone_2026/feature/sign_up_type/presentation/sign_up_type_screen_root.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
@@ -16,15 +17,10 @@ final router = GoRouter(
       builder: (context, state) => SignInScreenRoot(
         viewModel: getIt<SignInViewModel>(),
       ),
-    ),
-    GoRoute(
-      path: Routes.signUp,
       routes: [
         GoRoute(
           path: Routes.signUpType,
-          builder: (context, state) => const Scaffold(
-            body: Placeholder(),
-          ),
+          builder: (context, state) => const SignUpTypeScreenRoot(),
           routes: [
             GoRoute(
               path: Routes.signUpUser,
