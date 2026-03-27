@@ -1,7 +1,7 @@
-import 'package:capstone_2026/ui/app_colors.dart';
-import 'package:capstone_2026/ui/text_styles.dart';
 import 'package:flutter/material.dart';
 
+import 'package:capstone_2026/ui/app_colors.dart';
+import 'package:capstone_2026/ui/text_styles.dart';
 import 'sign_in_state.dart';
 
 class SignInScreen extends StatelessWidget {
@@ -11,6 +11,7 @@ class SignInScreen extends StatelessWidget {
     required this.onPasswordChanged,
     required this.onSubmit,
     required this.onSignUpTap,
+    required this.onFindPasswordTap,
     super.key,
   });
 
@@ -19,6 +20,7 @@ class SignInScreen extends StatelessWidget {
   final ValueChanged<String> onPasswordChanged;
   final VoidCallback onSubmit;
   final VoidCallback onSignUpTap;
+  final VoidCallback onFindPasswordTap;
 
   @override
   Widget build(BuildContext context) {
@@ -137,7 +139,7 @@ class SignInScreen extends StatelessWidget {
                             ),
                             const Text('|', style: AppTextStyles.subtitle),
                             TextButton(
-                              onPressed: () {},
+                              onPressed: onFindPasswordTap,
                               child: const Text('비밀번호 찾기'),
                             ),
                           ],

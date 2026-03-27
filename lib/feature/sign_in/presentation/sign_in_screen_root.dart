@@ -29,6 +29,8 @@ class _SignInScreenRootState extends State<SignInScreenRoot> {
           onPasswordChanged: widget.viewModel.onPasswordChanged,
           onSubmit: widget.viewModel.submitLogin,
           onSignUpTap: () => context.go('${Routes.signIn}/${Routes.signUpType}'),
+          onFindPasswordTap: () =>
+              context.go('${Routes.signIn}/${Routes.findPassword}'),
         );
       },
     );
