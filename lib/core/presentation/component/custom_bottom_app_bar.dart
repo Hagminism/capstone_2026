@@ -17,8 +17,8 @@ class CustomBottomAppBar extends StatelessWidget {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       body: navigationShell,
       bottomNavigationBar: BottomAppBar(
-        shape: const CircularNotchedRectangle(), // 노치 모양 생성
-        notchMargin: 8.0, // 노치와 floatingActionButton 사이의 간격
+        // shape: const CircularNotchedRectangle(), // 노치 모양 생성
+        // notchMargin: 8.0, // 노치와 floatingActionButton 사이의 간격
         color: Colors.white,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -51,18 +51,18 @@ class CustomBottomAppBar extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: (navigationShell.currentIndex == 0)
-          ? FloatingActionButton(
-              onPressed: () {},
-              shape: CircleBorder(),
-              backgroundColor: AppColors.primary,
-              child: Icon(
-                Icons.add,
-                color: Colors.white,
-                size: 32,
-              ),
-            )
-          : null,
+      // floatingActionButton: (navigationShell.currentIndex == 0)
+      //     ? FloatingActionButton(
+      //         onPressed: () {},
+      //         shape: CircleBorder(),
+      //         backgroundColor: AppColors.primary,
+      //         child: Icon(
+      //           Icons.add,
+      //           color: Colors.white,
+      //           size: 32,
+      //         ),
+      //       )
+      //     : null,
     );
   }
 }
