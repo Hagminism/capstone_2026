@@ -4,6 +4,7 @@ import 'package:capstone_2026/di/di_setup.dart';
 import 'package:capstone_2026/feature/find_password/presentation/find_password_screen_root.dart';
 import 'package:capstone_2026/feature/find_password/presentation/find_password_view_model.dart';
 import 'package:capstone_2026/feature/home/presentation/screen/home_screen.dart';
+import 'package:capstone_2026/feature/my_page/presentation/screen/my_page_screen.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/sign_in_screen_root.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/sign_in_view_model.dart';
 import 'package:capstone_2026/feature/sign_up_partner/presentation/sign_up_partner_screen_root.dart';
@@ -84,8 +85,57 @@ final router = GoRouter(
           routes: [
             GoRoute(
               path: Routes.myPage,
-              builder: (context, state) =>
-                  const Placeholder(color: Colors.green),
+              builder: (context, state) => const MyPageScreen(),
+              routes: [
+                GoRoute(
+                  path: Routes.profileEdit,
+                  builder: (context, state) => const Scaffold(
+                    body: SafeArea(
+                      child: Center(child: Text('프로필 수정 페이지')),
+                    ),
+                  ),
+                ),
+                GoRoute(
+                  path: Routes.reservationHistory,
+                  builder: (context, state) => const Scaffold(
+                    body: SafeArea(
+                      child: Center(child: Text('이용 내역 페이지')),
+                    ),
+                  ),
+                ),
+                GoRoute(
+                  path: Routes.reviewHistory,
+                  builder: (context, state) => const Scaffold(
+                    body: SafeArea(
+                      child: Center(child: Text('리뷰 내역 페이지')),
+                    ),
+                  ),
+                ),
+                GoRoute(
+                  path: Routes.notificationSettings,
+                  builder: (context, state) => const Scaffold(
+                    body: SafeArea(
+                      child: Center(child: Text('알림 설정 페이지')),
+                    ),
+                  ),
+                ),
+                GoRoute(
+                  path: Routes.notices,
+                  builder: (context, state) => const Scaffold(
+                    body: SafeArea(
+                      child: Center(child: Text('공지사항 페이지')),
+                    ),
+                  ),
+                ),
+                GoRoute(
+                  path: Routes.terms,
+                  builder: (context, state) => const Scaffold(
+                    body: SafeArea(
+                      child: Center(child: Text('이용약관 페이지')),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
