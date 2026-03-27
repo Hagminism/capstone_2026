@@ -4,6 +4,7 @@ import 'package:capstone_2026/di/di_setup.dart';
 import 'package:capstone_2026/feature/find_password/presentation/find_password_screen_root.dart';
 import 'package:capstone_2026/feature/find_password/presentation/find_password_view_model.dart';
 import 'package:capstone_2026/feature/home/presentation/screen/home_screen.dart';
+import 'package:capstone_2026/feature/store_detail/presentation/screen/store_detail_screen.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/sign_in_screen_root.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/sign_in_view_model.dart';
 import 'package:capstone_2026/feature/sign_up_partner/presentation/sign_up_partner_screen_root.dart';
@@ -59,6 +60,14 @@ final router = GoRouter(
             GoRoute(
               path: Routes.home,
               builder: (context, state) => const HomeScreen(),
+              routes: [
+                GoRoute(
+                  path: Routes.storeDetail,
+                  builder: (context, state) => StoreDetailScreen(
+                    storeId: state.pathParameters['storeId'] ?? '',
+                  ),
+                ),
+              ],
             ),
           ],
         ),
