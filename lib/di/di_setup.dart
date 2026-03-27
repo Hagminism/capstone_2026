@@ -8,16 +8,16 @@ GetIt getIt = GetIt.instance;
 
 void diSetup() {
   // ViewModel
-  getIt.registerLazySingleton<SignInViewModel>(
+  getIt.registerFactory<SignInViewModel>(
     () => SignInViewModel(),
   );
-  getIt.registerLazySingleton<FindPasswordViewModel>(
+  getIt.registerFactory<FindPasswordViewModel>(
     () => FindPasswordViewModel(),
   );
-  getIt.registerLazySingleton<SignUpViewModel>(
+  getIt.registerFactory<SignUpViewModel>(
     () => SignUpViewModel(),
   );
-  getIt.registerLazySingleton<SignUpPartnerViewModel>(
+  getIt.registerFactory<SignUpPartnerViewModel>(
     () => SignUpPartnerViewModel(),
   );
 }
