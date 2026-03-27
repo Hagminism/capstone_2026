@@ -65,7 +65,7 @@ final router = GoRouter(
               builder: (context, state) => const HomeScreen(),
               routes: [
                 GoRoute(
-                  path: Routes.storeDetail,
+                  path: Routes.homeStoreDetail,
                   builder: (context, state) => StoreDetailScreen(
                     storeId: state.pathParameters['storeId'] ?? '',
                   ),
