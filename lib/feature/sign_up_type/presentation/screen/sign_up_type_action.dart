@@ -8,5 +8,5 @@ sealed class SignUpTypeAction with _$SignUpTypeAction {
 
   const factory SignUpTypeAction.tapPartner() = TapPartner;
 
-  const factory SignUpTypeAction.tapSignIn() = TapSignIn;
+  const factory SignUpTypeAction.tapBackButton() = TapBackButton;
 }
