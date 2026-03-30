@@ -1,6 +1,6 @@
 import 'package:capstone_2026/core/data/repository/auth_repository_impl.dart';
 import 'package:capstone_2026/core/domain/repository/auth_repository.dart';
-import 'package:capstone_2026/feature/find_password/presentation/find_password_view_model.dart';
+import 'package:capstone_2026/feature/find_password/presentation/screen/find_password_view_model.dart';
 import 'package:capstone_2026/feature/select_auth_provider/presentation/screen/select_auth_provider_view_model.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/screen/sign_in_view_model.dart';
 import 'package:capstone_2026/feature/sign_up_partner/presentation/sign_up_partner_view_model.dart';
