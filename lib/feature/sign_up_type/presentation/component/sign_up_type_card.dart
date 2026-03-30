@@ -65,6 +65,7 @@ class SignUpTypeCard extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                           color: AppColors.textSecondary,
                           height: 1.35,
+                          letterSpacing: 0,
                         ),
                       ),
                     ],
