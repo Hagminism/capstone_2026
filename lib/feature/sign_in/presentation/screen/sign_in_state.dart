@@ -4,16 +4,10 @@ part 'sign_in_state.freezed.dart';
 
 @freezed
 abstract class SignInState with _$SignInState {
-  const SignInState._();
-
   const factory SignInState({
+    @Default(false) bool isLoading,
+    @Default(true) bool isObscureText,
     @Default('') String email,
     @Default('') String password,
-    @Default(false) bool isSubmitting,
-    String? errorMessage,
   }) = _SignInState;
-
-  bool get canSubmit {
-    return email.trim().isNotEmpty && password.trim().isNotEmpty && !isSubmitting;
-  }
 }

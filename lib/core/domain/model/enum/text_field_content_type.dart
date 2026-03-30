@@ -1,0 +1,4 @@
+enum TextFieldContentType {
+  email,
+  password,
+}

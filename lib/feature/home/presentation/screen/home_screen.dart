@@ -5,7 +5,7 @@ import 'package:capstone_2026/feature/home/presentation/component/home_search_ba
 import 'package:capstone_2026/feature/home/presentation/component/home_section_container.dart';
 import 'package:capstone_2026/feature/home/presentation/component/home_section_header.dart';
 import 'package:capstone_2026/feature/home/presentation/component/home_store_card.dart';
-import 'package:capstone_2026/ui/text_styles.dart';
+import 'package:capstone_2026/ui/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

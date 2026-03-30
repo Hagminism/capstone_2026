@@ -1,6 +1,6 @@
 import 'package:capstone_2026/core/routing/routes.dart';
 import 'package:capstone_2026/ui/app_colors.dart';
-import 'package:capstone_2026/ui/text_styles.dart';
+import 'package:capstone_2026/ui/app_text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

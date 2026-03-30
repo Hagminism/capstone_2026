@@ -50,8 +50,22 @@ app.*.map.json
 *.freezed.dart
 *.mocks.dart
 
-# Google Services (e.g. APIs or Firebase)
-google-services.json
+# Firebase configuration files (개별 설정 및 API 키 포함)
+/lib/firebase_options.dart
+/ios/Runner/GoogleService-Info.plist
+/android/app/google-services.json
+
+# Firebase CLI 로그 및 임시 폴더 (시스템 정보 및 상세 에러 기록)
+firebase-debug.log*
+.firebase/
+.firebaserc
+
+# (선택) 배포 설정 파일
+# 팀 프로젝트에서 배포 규칙을 공유해야 한다면 제외,
+# 개인적인 배포 환경이나 보안이 중요하다면 포함하세요.
+firebase.json
+firestore.rules
+storage.rules
 
 # Environment variables
 .env
