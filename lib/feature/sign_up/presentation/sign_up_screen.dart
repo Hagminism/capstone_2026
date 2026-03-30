@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../ui/app_colors.dart';
-import '../../../ui/text_styles.dart';
+import '../../../ui/app_text_styles.dart';
 import 'sign_up_state.dart';
 
 class SignUpScreen extends StatelessWidget {

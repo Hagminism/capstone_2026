@@ -1,5 +1,5 @@
 import 'package:capstone_2026/ui/app_colors.dart';
-import 'package:capstone_2026/ui/text_styles.dart';
+import 'package:capstone_2026/ui/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class BookmarkStoreCard extends StatelessWidget {
