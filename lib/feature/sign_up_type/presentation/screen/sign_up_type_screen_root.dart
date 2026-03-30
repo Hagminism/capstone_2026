@@ -23,7 +23,7 @@ class SignUpTypeScreenRoot extends StatelessWidget {
             );
             break;
           case TapSignIn():
-            context.go(Routes.signIn);
+            context.pop();
             break;
         }
       },
