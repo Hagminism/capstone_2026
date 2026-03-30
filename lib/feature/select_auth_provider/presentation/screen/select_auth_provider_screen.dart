@@ -4,6 +4,7 @@ import 'package:capstone_2026/feature/select_auth_provider/presentation/componen
 import 'package:capstone_2026/feature/select_auth_provider/presentation/screen/select_auth_provider_action.dart';
 import 'package:capstone_2026/feature/select_auth_provider/presentation/screen/select_auth_provider_state.dart';
 import 'package:capstone_2026/ui/app_colors.dart';
+import 'package:capstone_2026/ui/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class SelectAuthProviderScreen extends StatelessWidget {
@@ -64,6 +65,34 @@ class SelectAuthProviderScreen extends StatelessWidget {
                         ),
                       );
                     },
+                  ),
+                  const SizedBox(height: 12),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        '이미 계정이 있나요?',
+                        style: AppTextStyles.body.copyWith(
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      TextButton(
+                        style: ButtonStyle(
+                          padding: WidgetStateProperty.all(
+                            EdgeInsets.zero,
+                          ),
+                        ),
+                        onPressed: () => onAction(
+                          SelectAuthProviderAction.tapSignIn(),
+                        ),
+                        child: Text(
+                          '로그인',
+                          style: AppTextStyles.body.copyWith(
+                            fontWeight: FontWeight.w500,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ],
               ),

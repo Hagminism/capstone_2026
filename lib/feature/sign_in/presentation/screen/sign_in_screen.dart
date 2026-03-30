@@ -109,8 +109,13 @@ class SignInScreen extends StatelessWidget {
                               fontSize: 14,
                             ),
                           ),
-                          InkWell(
-                            onTap: () {
+                          TextButton(
+                            style: ButtonStyle(
+                              padding: WidgetStateProperty.all(
+                                EdgeInsets.zero,
+                              ),
+                            ),
+                            onPressed: () {
                               onAction(SignInAction.moveToSignUpScreen());
                             },
                             child: Text(
