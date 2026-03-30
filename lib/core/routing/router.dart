@@ -8,9 +8,9 @@ import 'package:capstone_2026/feature/my_page/presentation/screen/my_page_screen
 import 'package:capstone_2026/feature/my_page/presentation/screen/edit_profile_screen.dart';
 import 'package:capstone_2026/feature/bookmark/presentation/screen/bookmark_screen.dart';
 import 'package:capstone_2026/feature/bookmark_store_detail/presentation/screen/bookmark_store_detail_screen.dart';
-import 'package:capstone_2026/feature/select_auth_provider/presentation/screen/select_auth_provider_screen_root.dart';
+import 'package:capstone_2026/feature/select_auth_provider/core/presentation/component/scope/select_auth_provider_scope.dart';
 import 'package:capstone_2026/feature/select_auth_provider/presentation/screen/select_auth_provider_view_model.dart';
-import 'package:capstone_2026/feature/sign_in/presentation/screen/sign_in_screen_root.dart';
+import 'package:capstone_2026/feature/sign_in/core/presentation/component/scope/sign_in_scope.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/screen/sign_in_view_model.dart';
 import 'package:capstone_2026/feature/store_detail/presentation/screen/store_detail_screen.dart';
 import 'package:capstone_2026/feature/sign_up_partner/presentation/sign_up_partner_screen_root.dart';
@@ -26,7 +26,7 @@ final router = GoRouter(
   routes: [
     GoRoute(
       path: Routes.signIn,
-      builder: (context, state) => SignInScreenRoot(
+      builder: (context, state) => SignInScope(
         viewModel: getIt<SignInViewModel>(),
       ),
       routes: [
@@ -38,7 +38,7 @@ final router = GoRouter(
         ),
         GoRoute(
           path: Routes.selectAuthProvider,
-          builder: (context, state) => SelectAuthProviderScreenRoot(
+          builder: (context, state) => SelectAuthProviderScope(
             viewModel: getIt<SelectAuthProviderViewModel>(),
           ),
           routes: [
