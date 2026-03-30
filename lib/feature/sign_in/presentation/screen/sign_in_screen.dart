@@ -1,3 +1,4 @@
+import 'package:capstone_2026/core/presentation/component/text_field/custom_text_field.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/screen/sign_in_action.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/screen/sign_in_state.dart';
 import 'package:capstone_2026/ui/app_colors.dart';
@@ -5,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:capstone_2026/core/domain/model/enum/auth_provider.dart';
 import 'package:capstone_2026/core/domain/model/enum/text_field_content_type.dart';
 import 'package:capstone_2026/core/presentation/component/button/primary_button.dart';
-import 'package:capstone_2026/feature/sign_in/presentation/component/sign_in_text_field.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/component/social_sign_in_button.dart';
 import 'package:capstone_2026/ui/app_text_styles.dart';
 
@@ -47,7 +47,7 @@ class SignInScreen extends StatelessWidget {
                         style: TextStyle(color: AppColors.textPrimary),
                       ),
                       const SizedBox(height: 8),
-                      SignInTextField(
+                      CustomTextField(
                         textFieldContentType: TextFieldContentType.email,
                       ),
                       const SizedBox(height: 24),
@@ -56,7 +56,7 @@ class SignInScreen extends StatelessWidget {
                         style: TextStyle(color: AppColors.textPrimary),
                       ),
                       const SizedBox(height: 8),
-                      SignInTextField(
+                      CustomTextField(
                         textFieldContentType: TextFieldContentType.password,
                         isObscureText: state.isObscureText,
                         onTap: () {
