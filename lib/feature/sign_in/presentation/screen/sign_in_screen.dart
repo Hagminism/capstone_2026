@@ -35,7 +35,7 @@ class SignInScreen extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        '현명한 소비 습관,\n간편하게 시작해요',
+                        '모든 예약을 한눈에.\n관리는 더 쉽게.',
                         style: AppTextStyles.headline.copyWith(
                           fontSize: 30,
                           color: AppColors.textPrimary,
