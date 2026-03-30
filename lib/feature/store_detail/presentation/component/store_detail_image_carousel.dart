@@ -4,7 +4,8 @@ class StoreDetailImageCarousel extends StatefulWidget {
   const StoreDetailImageCarousel({super.key});
 
   @override
-  State<StoreDetailImageCarousel> createState() => _StoreDetailImageCarouselState();
+  State<StoreDetailImageCarousel> createState() =>
+      _StoreDetailImageCarouselState();
 }
 
 class _StoreDetailImageCarouselState extends State<StoreDetailImageCarousel> {

@@ -45,7 +45,7 @@ class SocialSignInButton extends StatelessWidget {
   Color buildColor(AuthProvider authProvider) {
     switch (authProvider) {
       case AuthProvider.email:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         throw UnimplementedError();
       case AuthProvider.google:
         return AppColors.signUpWithGoogleButton;
@@ -59,7 +59,7 @@ class SocialSignInButton extends StatelessWidget {
   String buildAsset(AuthProvider authProvider) {
     switch (authProvider) {
       case AuthProvider.email:
-      // TODO: Handle this case.
+        // TODO: Handle this case.
         throw UnimplementedError();
       case AuthProvider.google:
         return googleAsset;

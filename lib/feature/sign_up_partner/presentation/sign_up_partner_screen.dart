@@ -158,7 +158,8 @@ class SignUpPartnerScreen extends StatelessWidget {
                               children: [
                                 Checkbox(
                                   value: state.agreeTerms,
-                                  onChanged: (value) => onTermsChanged(value ?? false),
+                                  onChanged: (value) =>
+                                      onTermsChanged(value ?? false),
                                 ),
                                 const Expanded(
                                   child: Text(
@@ -217,7 +218,10 @@ class SignUpPartnerScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            const Text('이미 계정이 있나요?', style: AppTextStyles.subtitle),
+                            const Text(
+                              '이미 계정이 있나요?',
+                              style: AppTextStyles.subtitle,
+                            ),
                             TextButton(
                               onPressed: onSignInTap,
                               child: const Text('로그인'),
