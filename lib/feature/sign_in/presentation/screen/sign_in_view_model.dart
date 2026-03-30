@@ -56,6 +56,7 @@ class SignInViewModel extends ChangeNotifier {
     if (state.isLoading) return;
 
     _state = state.copyWith(isLoading: true);
+    notifyListeners();
 
     try {
       await _authRepository.signInWithGoogle();
