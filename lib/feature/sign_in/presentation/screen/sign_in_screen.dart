@@ -44,7 +44,10 @@ class SignInScreen extends StatelessWidget {
                       const SizedBox(height: 40),
                       Text(
                         '이메일',
-                        style: TextStyle(color: AppColors.textPrimary),
+                        style: AppTextStyles.caption.copyWith(
+                          fontSize: 14,
+                          color: AppColors.textPrimary,
+                        ),
                       ),
                       const SizedBox(height: 8),
                       CustomTextField(
@@ -53,7 +56,10 @@ class SignInScreen extends StatelessWidget {
                       const SizedBox(height: 24),
                       Text(
                         '비밀번호',
-                        style: TextStyle(color: AppColors.textPrimary),
+                        style: AppTextStyles.caption.copyWith(
+                          fontSize: 14,
+                          color: AppColors.textPrimary,
+                        ),
                       ),
                       const SizedBox(height: 8),
                       CustomTextField(
@@ -77,7 +83,8 @@ class SignInScreen extends StatelessWidget {
                               children: [
                                 Text(
                                   '비밀번호를 잊으셨나요?',
-                                  style: TextStyle(
+                                  style: AppTextStyles.body.copyWith(
+                                    fontSize: 14,
                                     color: AppColors.textSecondary,
                                   ),
                                 ),
@@ -104,7 +111,7 @@ class SignInScreen extends StatelessWidget {
                         children: [
                           Text(
                             '아직 회원이 아니신가요? ',
-                            style: TextStyle(
+                            style: AppTextStyles.body.copyWith(
                               color: AppColors.textPrimary,
                               fontSize: 14,
                             ),
@@ -120,7 +127,7 @@ class SignInScreen extends StatelessWidget {
                             },
                             child: Text(
                               '가입하기',
-                              style: TextStyle(
+                              style: AppTextStyles.body.copyWith(
                                 color: AppColors.primary,
                                 fontSize: 14,
                                 fontWeight: FontWeight.bold,
@@ -144,7 +151,7 @@ class SignInScreen extends StatelessWidget {
                           const SizedBox(width: 16),
                           Text(
                             ' SNS 계정으로 간편하게 시작 ',
-                            style: TextStyle(
+                            style: AppTextStyles.body.copyWith(
                               color: AppColors.textPrimary,
                               fontSize: 14,
                             ),
