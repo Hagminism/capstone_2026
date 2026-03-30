@@ -4,7 +4,6 @@ import 'package:capstone_2026/core/domain/repository/auth_repository.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/screen/sign_in_action.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/screen/sign_in_event.dart';
 import 'package:flutter/material.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 // import 'package:kakao_flutter_sdk/kakao_flutter_sdk.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/screen/sign_in_state.dart';
