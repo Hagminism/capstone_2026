@@ -29,5 +29,8 @@ class AppColors {
   static const Color signUpWithKakaoButton = Color(0xFFFEE500);
   static const Color signUpWithKakaoButtonText = Color(0xFF000000);
 
+  // CustomAppBar 관련 색상
+  static const Color customAppBarPrimary = Color(0xFF333333);
+
   static const Color divider = Color(0xFFE5E5EA);
 }

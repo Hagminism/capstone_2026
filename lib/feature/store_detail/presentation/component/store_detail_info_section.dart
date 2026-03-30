@@ -56,7 +56,11 @@ class StoreDetailInfoSection extends StatelessWidget {
                     const SizedBox(height: 6),
                     Row(
                       children: [
-                        const Icon(Icons.star_rounded, color: Colors.amber, size: 20),
+                        const Icon(
+                          Icons.star_rounded,
+                          color: Colors.amber,
+                          size: 20,
+                        ),
                         const SizedBox(width: 4),
                         Text(
                           '$rating  리뷰 $reviewCount개',
@@ -93,7 +97,10 @@ class StoreDetailInfoSection extends StatelessWidget {
             children: tags
                 .map(
                   (tag) => Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 7),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 7,
+                    ),
                     decoration: BoxDecoration(
                       color: AppColors.surfaceMuted,
                       borderRadius: BorderRadius.circular(8),

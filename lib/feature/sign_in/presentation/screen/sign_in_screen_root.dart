@@ -67,7 +67,7 @@ class _SignInScreenRootState extends State<SignInScreenRoot> {
                 // 임시로 홈 화면으로 보내도록 함
                 context.go(Routes.home);
               case MoveToSignUpScreen():
-                context.push('${Routes.signIn}/${Routes.signUpType}');
+                context.push('${Routes.signIn}/${Routes.selectAuthProvider}');
                 break;
               case MoveToFindPasswordScreen():
                 context.push('${Routes.signIn}/${Routes.findPassword}');

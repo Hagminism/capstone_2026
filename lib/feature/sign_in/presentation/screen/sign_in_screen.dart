@@ -77,8 +77,9 @@ class SignInScreen extends StatelessWidget {
                               children: [
                                 Text(
                                   '비밀번호를 잊으셨나요?',
-                                  style:
-                                      TextStyle(color: AppColors.textSecondary),
+                                  style: TextStyle(
+                                    color: AppColors.textSecondary,
+                                  ),
                                 ),
                                 Container(
                                   color: AppColors.textSecondary,
@@ -115,9 +116,10 @@ class SignInScreen extends StatelessWidget {
                             child: Text(
                               '가입하기',
                               style: TextStyle(
-                                  color: AppColors.primary,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold),
+                                color: AppColors.primary,
+                                fontSize: 14,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ],
@@ -129,8 +131,9 @@ class SignInScreen extends StatelessWidget {
                           Expanded(
                             child: Container(
                               height: 2,
-                              decoration:
-                                  BoxDecoration(color: AppColors.divider),
+                              decoration: BoxDecoration(
+                                color: AppColors.divider,
+                              ),
                             ),
                           ),
                           const SizedBox(width: 16),
@@ -145,8 +148,9 @@ class SignInScreen extends StatelessWidget {
                           Expanded(
                             child: Container(
                               height: 2,
-                              decoration:
-                                  BoxDecoration(color: AppColors.divider),
+                              decoration: BoxDecoration(
+                                color: AppColors.divider,
+                              ),
                             ),
                           ),
                         ],

@@ -38,7 +38,9 @@ class StoreDetailTabSection extends StatelessWidget {
                   decoration: BoxDecoration(
                     border: Border(
                       bottom: BorderSide(
-                        color: isSelected ? AppColors.textPrimary : Colors.transparent,
+                        color: isSelected
+                            ? AppColors.textPrimary
+                            : Colors.transparent,
                         width: 2,
                       ),
                     ),
@@ -47,8 +49,12 @@ class StoreDetailTabSection extends StatelessWidget {
                     _tabs[index],
                     style: TextStyle(
                       fontSize: 15,
-                      fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
-                      color: isSelected ? AppColors.textPrimary : AppColors.textSecondary,
+                      fontWeight: isSelected
+                          ? FontWeight.w700
+                          : FontWeight.w500,
+                      color: isSelected
+                          ? AppColors.textPrimary
+                          : AppColors.textSecondary,
                     ),
                   ),
                 ),

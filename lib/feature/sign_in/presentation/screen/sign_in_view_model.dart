@@ -57,9 +57,9 @@ class SignInViewModel extends ChangeNotifier {
     _state = state.copyWith(isLoading: true);
     notifyListeners();
 
+    // TODO: 사용자 취소로 인해 예외 발생 시에는 스낵바 표시하지 말아야 함.
     try {
       await _authRepository.signInWithGoogle();
-      notifyListeners();
     } catch (e) {
       _eventController.add(SignInEvent.showGoogleSignInError(e.toString()));
     } finally {
@@ -102,4 +102,10 @@ class SignInViewModel extends ChangeNotifier {
   //     }
   //   }
   // }
+
+  @override
+  void dispose() {
+    _eventController.close();
+    super.dispose();
+  }
 }

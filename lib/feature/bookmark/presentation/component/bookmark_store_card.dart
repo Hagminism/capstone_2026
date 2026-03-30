@@ -80,7 +80,11 @@ class BookmarkStoreCard extends StatelessWidget {
                     const SizedBox(height: 6),
                     Row(
                       children: [
-                        const Icon(Icons.star_rounded, size: 16, color: Colors.amber),
+                        const Icon(
+                          Icons.star_rounded,
+                          size: 16,
+                          color: Colors.amber,
+                        ),
                         const SizedBox(width: 4),
                         Text(
                           '$rating ($reviewCount)',

@@ -14,7 +14,8 @@ class SignUpPartnerScreenRoot extends StatefulWidget {
   final SignUpPartnerViewModel viewModel;
 
   @override
-  State<SignUpPartnerScreenRoot> createState() => _SignUpPartnerScreenRootState();
+  State<SignUpPartnerScreenRoot> createState() =>
+      _SignUpPartnerScreenRootState();
 }
 
 class _SignUpPartnerScreenRootState extends State<SignUpPartnerScreenRoot> {

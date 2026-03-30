@@ -15,7 +15,8 @@ class BookmarkStoreDetailScreen extends StatefulWidget {
   final String storeId;
 
   @override
-  State<BookmarkStoreDetailScreen> createState() => _BookmarkStoreDetailScreenState();
+  State<BookmarkStoreDetailScreen> createState() =>
+      _BookmarkStoreDetailScreenState();
 }
 
 class _BookmarkStoreDetailScreenState extends State<BookmarkStoreDetailScreen> {
