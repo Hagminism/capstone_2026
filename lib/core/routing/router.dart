@@ -8,6 +8,8 @@ import 'package:capstone_2026/feature/my_page/presentation/screen/my_page_screen
 import 'package:capstone_2026/feature/my_page/presentation/screen/edit_profile_screen.dart';
 import 'package:capstone_2026/feature/bookmark/presentation/screen/bookmark_screen.dart';
 import 'package:capstone_2026/feature/bookmark_store_detail/presentation/screen/bookmark_store_detail_screen.dart';
+import 'package:capstone_2026/feature/select_auth_provider/presentation/screen/select_auth_provider_screen_root.dart';
+import 'package:capstone_2026/feature/select_auth_provider/presentation/screen/select_auth_provider_view_model.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/screen/sign_in_screen_root.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/screen/sign_in_view_model.dart';
 import 'package:capstone_2026/feature/store_detail/presentation/screen/store_detail_screen.dart';
@@ -35,20 +37,29 @@ final router = GoRouter(
           ),
         ),
         GoRoute(
-          path: Routes.signUpType,
-          builder: (context, state) => SignUpTypeScreenRoot(),
+          path: Routes.selectAuthProvider,
+          builder: (context, state) => SelectAuthProviderScreenRoot(
+            viewModel: getIt<SelectAuthProviderViewModel>(),
+          ),
           routes: [
+            // TODO: 소셜 로그인 인증 붙으면 중첩 -> 단일 라우트 분리할 것.
             GoRoute(
-              path: Routes.signUpUser,
-              builder: (context, state) => SignUpScreenRoot(
-                viewModel: getIt<SignUpViewModel>(),
-              ),
-            ),
-            GoRoute(
-              path: Routes.signUpPartner,
-              builder: (context, state) => SignUpPartnerScreenRoot(
-                viewModel: getIt<SignUpPartnerViewModel>(),
-              ),
+              path: Routes.signUpType,
+              builder: (context, state) => SignUpTypeScreenRoot(),
+              routes: [
+                GoRoute(
+                  path: Routes.signUpUser,
+                  builder: (context, state) => SignUpScreenRoot(
+                    viewModel: getIt<SignUpViewModel>(),
+                  ),
+                ),
+                GoRoute(
+                  path: Routes.signUpPartner,
+                  builder: (context, state) => SignUpPartnerScreenRoot(
+                    viewModel: getIt<SignUpPartnerViewModel>(),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
