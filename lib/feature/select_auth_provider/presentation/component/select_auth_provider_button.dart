@@ -3,11 +3,11 @@ import 'package:capstone_2026/ui/app_colors.dart';
 import 'package:capstone_2026/ui/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
-class AuthProviderSelectingButton extends StatelessWidget {
+class SelectAuthProviderButton extends StatelessWidget {
   final AuthProvider authProvider;
   final void Function() onTap;
 
-  const AuthProviderSelectingButton({
+  const SelectAuthProviderButton({
     super.key,
     required this.authProvider,
     required this.onTap,
