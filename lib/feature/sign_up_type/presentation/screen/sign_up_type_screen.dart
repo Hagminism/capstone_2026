@@ -1,3 +1,4 @@
+import 'package:capstone_2026/core/presentation/component/app_bar/custom_app_bar.dart';
 import 'package:capstone_2026/feature/sign_up_type/presentation/component/sign_up_type_card.dart';
 import 'package:capstone_2026/feature/sign_up_type/presentation/screen/sign_up_type_action.dart';
 import 'package:capstone_2026/ui/app_colors.dart';
@@ -16,6 +17,12 @@ class SignUpTypeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.white,
+      // 소셜 로그인 후 표시될 타입 선택 페이지에서는 앱바 표시를 안하는 게 맞을 듯.
+      appBar: CustomAppBar(
+        title: '',
+        showBackButton: true,
+        onTap: () => onAction(SignUpTypeAction.tapBackButton()),
+      ),
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(

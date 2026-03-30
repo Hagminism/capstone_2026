@@ -14,15 +14,15 @@ class SignUpTypeScreenRoot extends StatelessWidget {
         switch (action) {
           case TapUser():
             context.push(
-              '${Routes.signIn}/${Routes.signUpType}/${Routes.signUpUser}',
+              '${Routes.signIn}/${Routes.selectAuthProvider}/${Routes.signUpType}/${Routes.signUpUser}',
             );
             break;
           case TapPartner():
             context.push(
-              '${Routes.signIn}/${Routes.signUpType}/${Routes.signUpPartner}',
+              '${Routes.signIn}/${Routes.selectAuthProvider}/${Routes.signUpType}/${Routes.signUpPartner}',
             );
             break;
-          case TapSignIn():
+          case TapBackButton():
             context.pop();
             break;
         }
