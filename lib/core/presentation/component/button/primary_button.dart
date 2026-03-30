@@ -42,7 +42,7 @@ class PrimaryButton extends StatelessWidget {
                 fontWeight: FontWeight.w700,
                 fontSize: (fontSize != null) ? fontSize! : null,
                 color:
-                    (textColor != null) ? textColor : AppColors.textOnPrimary,
+                    (textColor != null) ? textColor : AppColors.white,
               ),
             ),
           ),
