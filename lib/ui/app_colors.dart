@@ -4,7 +4,7 @@ class AppColors {
   static const Color white = Color(0xFFFFFFFF);
   static const Color black = Color(0xFF000000);
 
-  static const Color primary = Color(0xFF4F46E5);
+  static const Color primary = Color(0xFFFF3D00);
   static const Color secondary = Color(0xFF06B6D4);
   static const Color surface = Color(0xFFFFFFFF);
   static const Color surfaceMuted = Color(0xFFF5F7FF);
