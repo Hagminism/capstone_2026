@@ -48,31 +48,37 @@ class _SelectAuthProviderScreenRootState
 
   @override
   Widget build(BuildContext context) {
-    return SelectAuthProviderScreen(
-      state: widget.viewModel.state,
-      onAction: (action) {
-        switch (action) {
-          case TapBackButton():
-            context.pop();
-            break;
-          case TapSignUpWithEmailButton():
-            // 화면 연결 보기 위해 임시로 연결.
-            context.push(
-              '${Routes.signIn}/${Routes.selectAuthProvider}/${Routes.signUpType}',
-            );
-            break;
-          case TapSignUpWithGoogleButton():
-            break;
-          // TODO: 각 플랫폼에 맞게 라우팅 연결할 것
-          case TapSignUpWithKakaoButton():
-          // context.push(
-          //     '${Routes.signIn}/${Routes.selectAuthProvider}/${Routes.}');
-          // break;
-          case TapSignUpWithNaverButton():
-          // context.push(
-          //     '${Routes.signIn}/${Routes.selectAuthProvider}/${Routes.}');
-          // break;
-        }
+    return ListenableBuilder(
+      listenable: widget.viewModel,
+      builder: (context, child) {
+        return SelectAuthProviderScreen(
+          state: widget.viewModel.state,
+          onAction: (action) {
+            switch (action) {
+              case TapBackButton():
+                context.pop();
+                break;
+              case TapSignUpWithEmailButton():
+                // 화면 연결 보기 위해 임시로 연결.
+                context.push(
+                  '${Routes.signIn}/${Routes.selectAuthProvider}/${Routes.signUpType}',
+                );
+                break;
+              case TapSignUpWithGoogleButton():
+                widget.viewModel.onAction(action);
+                break;
+              // TODO: 각 플랫폼에 맞게 라우팅 연결할 것
+              case TapSignUpWithKakaoButton():
+              // context.push(
+              //     '${Routes.signIn}/${Routes.selectAuthProvider}/${Routes.}');
+              // break;
+              case TapSignUpWithNaverButton():
+              // context.push(
+              //     '${Routes.signIn}/${Routes.selectAuthProvider}/${Routes.}');
+              // break;
+            }
+          },
+        );
       },
     );
   }
