@@ -17,4 +17,6 @@ sealed class SelectAuthProviderAction with _$SelectAuthProviderAction {
 
   const factory SelectAuthProviderAction.tapSignUpWithNaverButton() =
       TapSignUpWithNaverButton;
+
+  const factory SelectAuthProviderAction.tapSignIn() = TapSignIn;
 }

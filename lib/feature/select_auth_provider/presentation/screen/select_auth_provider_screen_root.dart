@@ -76,6 +76,9 @@ class _SelectAuthProviderScreenRootState
               // context.push(
               //     '${Routes.signIn}/${Routes.selectAuthProvider}/${Routes.}');
               // break;
+              case TapSignIn():
+                context.pop();
+                break;
             }
           },
         );

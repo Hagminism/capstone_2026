@@ -26,6 +26,7 @@ class SelectAuthProviderViewModel extends ChangeNotifier {
     switch (action) {
       case TapBackButton():
       case TapSignUpWithEmailButton():
+      case TapSignIn():
         break;
       case TapSignUpWithGoogleButton():
         _signUpWithGoogle();
