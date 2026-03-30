@@ -58,20 +58,18 @@ class SignInViewModel extends ChangeNotifier {
     _state = state.copyWith(isLoading: true);
     notifyListeners();
 
+    // TODO: 사용자 취소로 인해 예외 발생 시에는 스낵바 표시하지 말아야 함.
     try {
       await _authRepository.signInWithGoogle();
       notifyListeners();
-    } on GoogleSignInException catch (_) {
-      _state = state.copyWith(isLoading: false);
-      notifyListeners();
-      return;
     } catch (e) {
+      _eventController.add(
+        SignInEvent.showGoogleSignInError(e.toString()),
+      );
+    } finally {
       _state = state.copyWith(isLoading: false);
-      _eventController.add(SignInEvent.showGoogleSignInError(e.toString()));
       notifyListeners();
-      return;
     }
-    return;
   }
 
   // Future<void> _signInWithKakao() async {
@@ -108,4 +106,10 @@ class SignInViewModel extends ChangeNotifier {
   //     }
   //   }
   // }
+
+  @override
+  void dispose() {
+    _eventController.close();
+    super.dispose();
+  }
 }
