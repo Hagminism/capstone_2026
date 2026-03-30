@@ -1,0 +1,4 @@
+enum SummaryCardType {
+  income,
+  expense,
+}
