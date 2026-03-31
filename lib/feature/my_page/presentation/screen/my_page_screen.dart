@@ -29,7 +29,8 @@ class MyPageScreen extends StatelessWidget {
               MyProfileCard(
                 name: '이학민님',
                 email: 'hakmin@example.com',
-                onEditTap: () => context.go('${Routes.myPage}/${Routes.profileEdit}'),
+                onEditTap: () =>
+                    context.go('${Routes.myPage}/${Routes.profileEdit}'),
               ),
               const SizedBox(height: 20),
               MyMenuSection(
@@ -73,7 +74,8 @@ class MyPageScreen extends StatelessWidget {
                   MyMenuTile(
                     title: '공지사항',
                     icon: Icons.campaign_outlined,
-                    onTap: () => context.go('${Routes.myPage}/${Routes.notices}'),
+                    onTap: () =>
+                        context.go('${Routes.myPage}/${Routes.notices}'),
                   ),
                   MyMenuTile(
                     title: '이용약관',

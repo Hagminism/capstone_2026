@@ -3,40 +3,48 @@ import 'package:flutter/material.dart';
 import 'app_colors.dart';
 
 class AppTextStyles {
+  static const String fontFamily = 'Pretendard';
+
   // --- Default semantic styles ---
 
   /// Headline: 28px, Bold (w700)
   static const TextStyle headline = TextStyle(
+    fontFamily: fontFamily,
     fontSize: FontSizes.headline,
     fontWeight: FontWeight.w700,
   );
 
   /// Title Large: 24px, Semi Bold (w600)
   static const TextStyle titleLarge = TextStyle(
+    fontFamily: fontFamily,
     fontSize: FontSizes.titleLarge,
     fontWeight: FontWeight.w600,
   );
 
   /// Title Medium: 20px, Regular (w400)
   static const TextStyle titleMedium = TextStyle(
+    fontFamily: fontFamily,
     fontSize: FontSizes.titleMedium,
     fontWeight: FontWeight.w400,
   );
 
   /// Subtitle: 18px, Semi Bold (w600)
   static const TextStyle subtitle = TextStyle(
+    fontFamily: fontFamily,
     fontSize: FontSizes.subtitle,
     fontWeight: FontWeight.w600,
   );
 
   /// Body: 16px, Regular (w400)
   static const TextStyle body = TextStyle(
+    fontFamily: fontFamily,
     fontSize: FontSizes.body,
     fontWeight: FontWeight.w400,
   );
 
   /// Body: 16px, Regular (w400), Secondary Color
   static const TextStyle bodySecondary = TextStyle(
+    fontFamily: fontFamily,
     fontSize: FontSizes.body,
     fontWeight: FontWeight.w400,
     color: AppColors.textSecondary,
@@ -44,6 +52,7 @@ class AppTextStyles {
 
   /// Caption: 12px, Regular (w400), Secondary Color
   static const TextStyle caption = TextStyle(
+    fontFamily: fontFamily,
     fontSize: FontSizes.caption,
     fontWeight: FontWeight.w400,
     color: AppColors.textSecondary,
@@ -51,6 +60,7 @@ class AppTextStyles {
 
   /// Label: 12px, Semi Bold (w600)
   static const TextStyle label = TextStyle(
+    fontFamily: fontFamily,
     fontSize: FontSizes.label,
     fontWeight: FontWeight.w600,
   );

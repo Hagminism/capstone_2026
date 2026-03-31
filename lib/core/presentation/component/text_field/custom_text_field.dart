@@ -3,12 +3,12 @@ import 'package:capstone_2026/ui/app_colors.dart';
 import 'package:capstone_2026/ui/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
-class SignInTextField extends StatelessWidget {
+class CustomTextField extends StatelessWidget {
   final TextFieldContentType textFieldContentType;
   final bool? isObscureText;
   final void Function()? onTap;
 
-  const SignInTextField({
+  const CustomTextField({
     super.key,
     required this.textFieldContentType,
     this.isObscureText,
@@ -26,29 +26,13 @@ class SignInTextField extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       child: Row(
         children: [
-          (textFieldContentType == TextFieldContentType.email)
-              ? const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 17.0),
-                  child: Icon(
-                    Icons.email_outlined,
-                    size: 24,
-                    color: AppColors.textSecondary,
-                  ),
-                )
-              : const Padding(
-                  padding: EdgeInsets.symmetric(vertical: 17.0),
-                  child: Icon(
-                    Icons.lock_outline,
-                    size: 24,
-                    color: AppColors.textSecondary,
-                  ),
-                ),
+          buildIcon(textFieldContentType),
           const SizedBox(width: 16.0),
           Expanded(
             child: TextFormField(
-              obscureText: (textFieldContentType == TextFieldContentType.email)
-                  ? false
-                  : (isObscureText != null && isObscureText == true)
+              obscureText:
+                  (textFieldContentType != TextFieldContentType.email &&
+                      isObscureText == true)
                   ? true
                   : false,
               decoration: InputDecoration(
@@ -87,6 +71,28 @@ class SignInTextField extends StatelessWidget {
               ],
             ),
         ],
+      ),
+    );
+  }
+
+  Widget buildIcon(TextFieldContentType textFieldContentType) {
+    final IconData iconData;
+
+    switch (textFieldContentType) {
+      case TextFieldContentType.email:
+        iconData = Icons.email_outlined;
+        break;
+      case TextFieldContentType.password:
+        iconData = Icons.lock_outline;
+        break;
+    }
+
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 17.0),
+      child: Icon(
+        iconData,
+        size: 24,
+        color: AppColors.textSecondary,
       ),
     );
   }

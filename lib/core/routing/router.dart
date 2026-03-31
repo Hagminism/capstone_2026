@@ -1,21 +1,23 @@
 import 'package:capstone_2026/core/presentation/component/custom_bottom_app_bar.dart';
 import 'package:capstone_2026/core/routing/routes.dart';
 import 'package:capstone_2026/di/di_setup.dart';
-import 'package:capstone_2026/feature/find_password/presentation/find_password_screen_root.dart';
-import 'package:capstone_2026/feature/find_password/presentation/find_password_view_model.dart';
+import 'package:capstone_2026/feature/find_password/presentation/screen/find_password_screen_root.dart';
+import 'package:capstone_2026/feature/find_password/presentation/screen/find_password_view_model.dart';
 import 'package:capstone_2026/feature/home/presentation/screen/home_screen.dart';
 import 'package:capstone_2026/feature/my_page/presentation/screen/my_page_screen.dart';
 import 'package:capstone_2026/feature/my_page/presentation/screen/edit_profile_screen.dart';
 import 'package:capstone_2026/feature/bookmark/presentation/screen/bookmark_screen.dart';
 import 'package:capstone_2026/feature/bookmark_store_detail/presentation/screen/bookmark_store_detail_screen.dart';
-import 'package:capstone_2026/feature/sign_in/presentation/screen/sign_in_screen_root.dart';
+import 'package:capstone_2026/feature/select_auth_provider/core/presentation/component/scope/select_auth_provider_scope.dart';
+import 'package:capstone_2026/feature/select_auth_provider/presentation/screen/select_auth_provider_view_model.dart';
+import 'package:capstone_2026/feature/sign_in/core/presentation/component/scope/sign_in_scope.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/screen/sign_in_view_model.dart';
 import 'package:capstone_2026/feature/store_detail/presentation/screen/store_detail_screen.dart';
 import 'package:capstone_2026/feature/sign_up_partner/presentation/sign_up_partner_screen_root.dart';
 import 'package:capstone_2026/feature/sign_up_partner/presentation/sign_up_partner_view_model.dart';
 import 'package:capstone_2026/feature/sign_up/presentation/sign_up_screen_root.dart';
 import 'package:capstone_2026/feature/sign_up/presentation/sign_up_view_model.dart';
-import 'package:capstone_2026/feature/sign_up_type/presentation/sign_up_type_screen_root.dart';
+import 'package:capstone_2026/feature/sign_up_type/presentation/screen/sign_up_type_screen_root.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +26,7 @@ final router = GoRouter(
   routes: [
     GoRoute(
       path: Routes.signIn,
-      builder: (context, state) => SignInScreenRoot(
+      builder: (context, state) => SignInScope(
         viewModel: getIt<SignInViewModel>(),
       ),
       routes: [
@@ -35,20 +37,29 @@ final router = GoRouter(
           ),
         ),
         GoRoute(
-          path: Routes.signUpType,
-          builder: (context, state) => const SignUpTypeScreenRoot(),
+          path: Routes.selectAuthProvider,
+          builder: (context, state) => SelectAuthProviderScope(
+            viewModel: getIt<SelectAuthProviderViewModel>(),
+          ),
           routes: [
+            // TODO: 소셜 로그인 인증 붙으면 중첩 -> 단일 라우트 분리할 것.
             GoRoute(
-              path: Routes.signUpUser,
-              builder: (context, state) => SignUpScreenRoot(
-                viewModel: getIt<SignUpViewModel>(),
-              ),
-            ),
-            GoRoute(
-              path: Routes.signUpPartner,
-              builder: (context, state) => SignUpPartnerScreenRoot(
-                viewModel: getIt<SignUpPartnerViewModel>(),
-              ),
+              path: Routes.signUpType,
+              builder: (context, state) => SignUpTypeScreenRoot(),
+              routes: [
+                GoRoute(
+                  path: Routes.signUpUser,
+                  builder: (context, state) => SignUpScreenRoot(
+                    viewModel: getIt<SignUpViewModel>(),
+                  ),
+                ),
+                GoRoute(
+                  path: Routes.signUpPartner,
+                  builder: (context, state) => SignUpPartnerScreenRoot(
+                    viewModel: getIt<SignUpPartnerViewModel>(),
+                  ),
+                ),
+              ],
             ),
           ],
         ),

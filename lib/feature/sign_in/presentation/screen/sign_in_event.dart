@@ -4,5 +4,6 @@ part 'sign_in_event.freezed.dart';
 
 @freezed
 sealed class SignInEvent with _$SignInEvent {
-  const factory SignInEvent.showGoogleSignInError(String error) = ShowGoogleSignInError;
+  const factory SignInEvent.showGoogleSignInError(String error) =
+      ShowGoogleSignInError;
 }

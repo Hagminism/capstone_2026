@@ -1,17 +1,16 @@
-import 'package:capstone_2026/core/routing/routes.dart';
+import 'package:capstone_2026/feature/find_password/presentation/screen/find_password_action.dart';
+import 'package:capstone_2026/feature/find_password/presentation/screen/find_password_screen.dart';
+import 'package:capstone_2026/feature/find_password/presentation/screen/find_password_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import 'find_password_screen.dart';
-import 'find_password_view_model.dart';
-
 class FindPasswordScreenRoot extends StatefulWidget {
+  final FindPasswordViewModel viewModel;
+
   const FindPasswordScreenRoot({
     super.key,
     required this.viewModel,
   });
-
-  final FindPasswordViewModel viewModel;
 
   @override
   State<FindPasswordScreenRoot> createState() => _FindPasswordScreenRootState();
@@ -25,9 +24,16 @@ class _FindPasswordScreenRootState extends State<FindPasswordScreenRoot> {
       builder: (context, child) {
         return FindPasswordScreen(
           state: widget.viewModel.state,
-          onEmailChanged: widget.viewModel.onEmailChanged,
-          onSubmit: widget.viewModel.submitFindPassword,
-          onSignInTap: () => context.go(Routes.signIn),
+          onAction: (action) {
+            switch (action) {
+              case Submit():
+                widget.viewModel.onAction(action);
+                break;
+              case TapSignIn():
+                context.pop();
+                break;
+            }
+          },
         );
       },
     );

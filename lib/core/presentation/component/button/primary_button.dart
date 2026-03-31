@@ -26,14 +26,16 @@ class PrimaryButton extends StatelessWidget {
       color: Colors.transparent,
       child: InkWell(
         onTap: onTap,
-        borderRadius:
-            BorderRadius.circular((borderRadius != null) ? borderRadius! : 12),
+        borderRadius: BorderRadius.circular(
+          (borderRadius != null) ? borderRadius! : 12,
+        ),
         child: Ink(
           height: (height != null) ? height! : 56,
           decoration: BoxDecoration(
             color: AppColors.primary,
             borderRadius: BorderRadius.circular(
-                (borderRadius != null) ? borderRadius! : 12),
+              (borderRadius != null) ? borderRadius! : 12,
+            ),
           ),
           child: Center(
             child: Text(
@@ -41,8 +43,7 @@ class PrimaryButton extends StatelessWidget {
               style: AppTextStyles.subtitle.copyWith(
                 fontWeight: FontWeight.w700,
                 fontSize: (fontSize != null) ? fontSize! : null,
-                color:
-                    (textColor != null) ? textColor : AppColors.white,
+                color: (textColor != null) ? textColor : AppColors.white,
               ),
             ),
           ),

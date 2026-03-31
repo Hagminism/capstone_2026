@@ -2,6 +2,7 @@ class Routes {
   // Auth
   static const String signIn = '/sign-in';
   static const String signUp = '/sign-up';
+  static const String selectAuthProvider = 'select-auth-provider';
   static const String signUpType = 'type';
   static const String signUpUser = 'user';
   static const String signUpPartner = 'partner';

@@ -104,7 +104,8 @@ class HomeScreen extends StatelessWidget {
                     name: item.name,
                     subtitle: item.subtitle,
                     rating: item.rating,
-                    onTap: () => context.go('${Routes.home}/store/${item.storeId}'),
+                    onTap: () =>
+                        context.go('${Routes.home}/store/${item.storeId}'),
                   );
                 },
                 separatorBuilder: (_, _) => const SizedBox(height: 12),
