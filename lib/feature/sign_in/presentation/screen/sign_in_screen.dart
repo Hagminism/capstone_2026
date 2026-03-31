@@ -1,3 +1,4 @@
+import 'package:capstone_2026/core/presentation/component/text_field/custom_text_field.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/screen/sign_in_action.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/screen/sign_in_state.dart';
 import 'package:capstone_2026/ui/app_colors.dart';
@@ -5,7 +6,6 @@ import 'package:flutter/material.dart';
 import 'package:capstone_2026/core/domain/model/enum/auth_provider.dart';
 import 'package:capstone_2026/core/domain/model/enum/text_field_content_type.dart';
 import 'package:capstone_2026/core/presentation/component/button/primary_button.dart';
-import 'package:capstone_2026/feature/sign_in/presentation/component/sign_in_text_field.dart';
 import 'package:capstone_2026/feature/sign_in/presentation/component/social_sign_in_button.dart';
 import 'package:capstone_2026/ui/app_text_styles.dart';
 
@@ -34,6 +34,7 @@ class SignInScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      const SizedBox(height: 40),
                       Text(
                         '모든 예약을 한눈에.\n관리는 더 쉽게.',
                         style: AppTextStyles.headline.copyWith(
@@ -44,19 +45,25 @@ class SignInScreen extends StatelessWidget {
                       const SizedBox(height: 40),
                       Text(
                         '이메일',
-                        style: TextStyle(color: AppColors.textPrimary),
+                        style: AppTextStyles.caption.copyWith(
+                          fontSize: 14,
+                          color: AppColors.textPrimary,
+                        ),
                       ),
                       const SizedBox(height: 8),
-                      SignInTextField(
+                      CustomTextField(
                         textFieldContentType: TextFieldContentType.email,
                       ),
                       const SizedBox(height: 24),
                       Text(
                         '비밀번호',
-                        style: TextStyle(color: AppColors.textPrimary),
+                        style: AppTextStyles.caption.copyWith(
+                          fontSize: 14,
+                          color: AppColors.textPrimary,
+                        ),
                       ),
                       const SizedBox(height: 8),
-                      SignInTextField(
+                      CustomTextField(
                         textFieldContentType: TextFieldContentType.password,
                         isObscureText: state.isObscureText,
                         onTap: () {
@@ -77,8 +84,10 @@ class SignInScreen extends StatelessWidget {
                               children: [
                                 Text(
                                   '비밀번호를 잊으셨나요?',
-                                  style:
-                                      TextStyle(color: AppColors.textSecondary),
+                                  style: AppTextStyles.body.copyWith(
+                                    fontSize: 14,
+                                    color: AppColors.textSecondary,
+                                  ),
                                 ),
                                 Container(
                                   color: AppColors.textSecondary,
@@ -97,61 +106,66 @@ class SignInScreen extends StatelessWidget {
                           onAction(SignInAction.tapSignInButton());
                         },
                       ),
-                      const SizedBox(height: 16),
+                      const SizedBox(height: 12),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
                             '아직 회원이 아니신가요? ',
-                            style: TextStyle(
+                            style: AppTextStyles.body.copyWith(
                               color: AppColors.textPrimary,
-                              fontSize: 14,
                             ),
                           ),
-                          InkWell(
-                            onTap: () {
+                          TextButton(
+                            style: ButtonStyle(
+                              padding: WidgetStateProperty.all(
+                                EdgeInsets.zero,
+                              ),
+                            ),
+                            onPressed: () {
                               onAction(SignInAction.moveToSignUpScreen());
                             },
                             child: Text(
                               '가입하기',
-                              style: TextStyle(
-                                  color: AppColors.primary,
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold),
+                              style: AppTextStyles.body.copyWith(
+                                color: AppColors.primary,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 32),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Expanded(
                             child: Container(
                               height: 2,
-                              decoration:
-                                  BoxDecoration(color: AppColors.divider),
+                              decoration: BoxDecoration(
+                                color: AppColors.divider,
+                              ),
                             ),
                           ),
                           const SizedBox(width: 16),
                           Text(
                             ' SNS 계정으로 간편하게 시작 ',
-                            style: TextStyle(
+                            style: AppTextStyles.body.copyWith(
                               color: AppColors.textPrimary,
-                              fontSize: 14,
                             ),
                           ),
                           const SizedBox(width: 16),
                           Expanded(
                             child: Container(
                               height: 2,
-                              decoration:
-                                  BoxDecoration(color: AppColors.divider),
+                              decoration: BoxDecoration(
+                                color: AppColors.divider,
+                              ),
                             ),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 32),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -173,6 +187,7 @@ class SignInScreen extends StatelessWidget {
                           ),
                         ],
                       ),
+                      const SizedBox(height: 32),
                     ],
                   ),
                 ),
