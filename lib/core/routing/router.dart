@@ -168,4 +168,30 @@ final router = GoRouter(
       ],
     ),
   ],
+  // redirect: _redirect
 );
+
+// TODO: 로그아웃 추가 후 다시 테스트 해볼 것.
+// Future<String?> _redirect(BuildContext context, GoRouterState state) async {
+//   final User? currentUser = await getIt<AuthRepository>().getCurrentUser();
+//
+//   // 현재 인증 상태를 확인
+//   final isLoggedIn = (currentUser != null);
+//
+//   // 현재 위치를 확인
+//   final location = state.matchedLocation;
+//   final isInAuthFlow = (location == Routes.signIn) ||
+//       location.startsWith('${Routes.signIn}/');
+//
+//   // 비로그인 상태일 때,
+//   // 인증 플로우 내 위치하면 아무 것도 하지 않고,
+//   // 아닐 경우 로그인 화면으로 이동
+//   if (!isLoggedIn) {
+//     return isInAuthFlow ? null : Routes.signIn;
+//   }
+//
+//   // 로그인 상태라면 메인 화면으로 이동
+//   if (isInAuthFlow) return Routes.home;
+//
+//   return null;
+// }
