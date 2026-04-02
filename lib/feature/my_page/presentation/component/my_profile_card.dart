@@ -3,16 +3,16 @@ import 'package:capstone_2026/ui/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class MyProfileCard extends StatelessWidget {
+  final String name;
+  final String email;
+  final void Function() onTap;
+
   const MyProfileCard({
     required this.name,
     required this.email,
-    required this.onEditTap,
+    required this.onTap,
     super.key,
   });
-
-  final String name;
-  final String email;
-  final VoidCallback onEditTap;
 
   @override
   Widget build(BuildContext context) {
@@ -39,14 +39,22 @@ class MyProfileCard extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(name, style: AppTextStyles.body),
+                Text(
+                  name,
+                  style: AppTextStyles.body.copyWith(
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
                 const SizedBox(height: 2),
-                Text(email, style: AppTextStyles.subtitle),
+                Text(
+                  email,
+                  style: AppTextStyles.caption.copyWith(fontSize: 14),
+                ),
               ],
             ),
           ),
           TextButton(
-            onPressed: onEditTap,
+            onPressed: onTap,
             child: const Text('수정'),
           ),
         ],
