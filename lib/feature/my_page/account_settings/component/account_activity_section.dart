@@ -67,7 +67,7 @@ class AccountActivitySection extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Text(
-            '회원 탈퇴 시 모든 지출/수입 데이터가 영구적으로 삭제되며 복구할 수 없습니다.',
+            '회원 탈퇴 시 모든 데이터가 영구적으로 삭제되며 복구할 수 없습니다.',
             style: AppTextStyles.caption.copyWith(
               color: AppColors.accountActivitySectionHeader,
             ),
