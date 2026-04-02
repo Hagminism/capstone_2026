@@ -21,12 +21,13 @@ class Routes {
   static const String bookmarkStoreDetail = 'store/:storeId';
 
   // My page nested paths
-  static const String profileEdit = 'profile/edit';
-  static const String reservationHistory = 'history/reservations';
-  static const String reviewHistory = 'history/reviews';
-  static const String notificationSettings = 'settings/notifications';
+  static const String profileEdit = 'profile-edit';
+  static const String reservationHistory = 'history-reservations';
+  static const String reviewHistory = 'history-reviews';
+  static const String notificationSettings = 'settings-notifications';
   static const String notices = 'notices';
   static const String terms = 'terms';
+  static const String inquiry = 'inquiry';
 
   // Admin
   static const String adminOnboarding = '/admin/onboarding';
