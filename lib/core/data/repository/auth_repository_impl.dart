@@ -46,6 +46,10 @@ class AuthRepositoryImpl implements AuthRepository {
     final googleUser = await _googleSignIn.attemptLightweightAuthentication();
     final googleAuth = googleUser?.authentication;
 
+    if (googleAuth?.idToken == null) {
+      throw Exception('재인증에 실패했습니다. 다시 시도해주십시오.');
+    }
+
     final credential = GoogleAuthProvider.credential(
       idToken: googleAuth?.idToken,
     );
