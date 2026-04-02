@@ -33,4 +33,9 @@ class AuthRepositoryImpl implements AuthRepository {
     // TODO: implement signOut
     throw UnimplementedError();
   }
+
+  @override
+  Future<User?> getCurrentUser() async {
+    return _firebaseAuth.currentUser;
+  }
 }
