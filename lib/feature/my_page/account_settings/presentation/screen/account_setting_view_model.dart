@@ -47,18 +47,22 @@ class AccountSettingViewModel extends ChangeNotifier {
 
   Future<void> _signOut() async {
     _state = state.copyWith(isLoading: true);
+    notifyListeners();
 
     await _authRepository.signOut();
 
     _state = state.copyWith(isLoading: false);
+    notifyListeners();
   }
 
   Future<void> _deleteAccount() async {
     _state = state.copyWith(isLoading: true);
+    notifyListeners();
 
     try {
       await _authRepository.deleteAccount();
       _state = state.copyWith(isLoading: false);
+      notifyListeners();
     } on FirebaseAuthException catch (e) {
       if (e.code == 'requires-recent-login') {
         // 보안상 중요한 작업은 최근 로그인 기록이 필요
@@ -67,10 +71,12 @@ class AccountSettingViewModel extends ChangeNotifier {
         print('재로그인이 필요합니다.');
       }
       _state = state.copyWith(isLoading: false);
+      notifyListeners();
     } catch (e) {
       // TODO: 스낵바 등으로 사용자에게 고지하면 될 듯?
       print('회원 탈퇴 실패: $e');
       _state = state.copyWith(isLoading: false);
+      notifyListeners();
     }
   }
 }
