@@ -1,0 +1,14 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+
+part 'account_setting_event.freezed.dart';
+
+@freezed
+sealed class AccountSettingEvent with _$AccountSettingEvent {
+  const factory AccountSettingEvent.showChangePasswordDialog() =
+      ShowChangePasswordDialog;
+
+  const factory AccountSettingEvent.showSignOutDialog() = ShowSignOutDialog;
+
+  const factory AccountSettingEvent.showDeleteAccountDialog() =
+      ShowDeleteAccountDialog;
+}
