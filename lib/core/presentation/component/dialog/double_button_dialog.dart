@@ -34,12 +34,9 @@ class DoubleButtonDialog extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 TextButton(
-                  onPressed: () {
-                    onPressed();
-                    Navigator.pop(context);
-                  },
+                  onPressed: () => Navigator.pop(context),
                   child: Text(
-                    '확인',
+                    '취소',
                     style: AppTextStyles.body.copyWith(
                       fontWeight: FontWeight.w500,
                       color: AppColors.primary,
@@ -47,9 +44,12 @@ class DoubleButtonDialog extends StatelessWidget {
                   ),
                 ),
                 TextButton(
-                  onPressed: () => Navigator.pop(context),
+                  onPressed: () {
+                    onPressed();
+                    Navigator.pop(context);
+                  },
                   child: Text(
-                    '취소',
+                    '확인',
                     style: AppTextStyles.body.copyWith(
                       fontWeight: FontWeight.w500,
                       color: AppColors.primary,
