@@ -1,13 +1,17 @@
+import 'package:capstone_2026/core/domain/repository/auth_repository.dart';
 import 'package:capstone_2026/core/presentation/component/custom_bottom_app_bar.dart';
+import 'package:capstone_2026/core/routing/core/component/auth_refresh_notifier.dart';
 import 'package:capstone_2026/core/routing/routes.dart';
 import 'package:capstone_2026/di/di_setup.dart';
 import 'package:capstone_2026/feature/find_password/presentation/screen/find_password_screen_root.dart';
 import 'package:capstone_2026/feature/find_password/presentation/screen/find_password_view_model.dart';
 import 'package:capstone_2026/feature/home/presentation/screen/home_screen.dart';
-import 'package:capstone_2026/feature/my_page/presentation/screen/edit_profile_screen.dart';
+import 'package:capstone_2026/feature/my_page/account_settings/presentation/screen/account_setting_screen_root.dart';
+import 'package:capstone_2026/feature/my_page/account_settings/presentation/screen/account_setting_view_model.dart';
+import 'package:capstone_2026/feature/my_page/settings/presentation/screen/edit_profile_screen.dart';
 import 'package:capstone_2026/feature/bookmark/presentation/screen/bookmark_screen.dart';
 import 'package:capstone_2026/feature/bookmark_store_detail/presentation/screen/bookmark_store_detail_screen.dart';
-import 'package:capstone_2026/feature/my_page/presentation/screen/my_page_screen_root.dart';
+import 'package:capstone_2026/feature/my_page/settings/presentation/screen/my_page_screen_root.dart';
 import 'package:capstone_2026/feature/select_auth_provider/core/presentation/component/scope/select_auth_provider_scope.dart';
 import 'package:capstone_2026/feature/select_auth_provider/presentation/screen/select_auth_provider_view_model.dart';
 import 'package:capstone_2026/feature/sign_in/core/presentation/component/scope/sign_in_scope.dart';
@@ -18,6 +22,7 @@ import 'package:capstone_2026/feature/sign_up_partner/presentation/sign_up_partn
 import 'package:capstone_2026/feature/sign_up/presentation/sign_up_screen_root.dart';
 import 'package:capstone_2026/feature/sign_up/presentation/sign_up_view_model.dart';
 import 'package:capstone_2026/feature/sign_up_type/presentation/screen/sign_up_type_screen_root.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
@@ -146,6 +151,14 @@ final router = GoRouter(
                   ),
                 ),
                 GoRoute(
+                  path: Routes.accountSettings,
+                  builder: (context, state) {
+                    return AccountSettingScreenRoot(
+                      viewModel: getIt<AccountSettingViewModel>(),
+                    );
+                  },
+                ),
+                GoRoute(
                   path: Routes.notificationSettings,
                   builder: (context, state) => const Scaffold(
                     body: SafeArea(
@@ -184,30 +197,33 @@ final router = GoRouter(
       ],
     ),
   ],
-  // redirect: _redirect
+  redirect: _redirect,
+  refreshListenable: AuthRefreshNotifier(
+    getIt<AuthRepository>().authStateChanges(),
+  ),
 );
 
-// TODO: 로그아웃 추가 후 다시 테스트 해볼 것.
-// Future<String?> _redirect(BuildContext context, GoRouterState state) async {
-//   final User? currentUser = await getIt<AuthRepository>().getCurrentUser();
-//
-//   // 현재 인증 상태를 확인
-//   final isLoggedIn = (currentUser != null);
-//
-//   // 현재 위치를 확인
-//   final location = state.matchedLocation;
-//   final isInAuthFlow = (location == Routes.signIn) ||
-//       location.startsWith('${Routes.signIn}/');
-//
-//   // 비로그인 상태일 때,
-//   // 인증 플로우 내 위치하면 아무 것도 하지 않고,
-//   // 아닐 경우 로그인 화면으로 이동
-//   if (!isLoggedIn) {
-//     return isInAuthFlow ? null : Routes.signIn;
-//   }
-//
-//   // 로그인 상태라면 메인 화면으로 이동
-//   if (isInAuthFlow) return Routes.home;
-//
-//   return null;
-// }
+// 리다이렉트 로직
+Future<String?> _redirect(BuildContext context, GoRouterState state) async {
+  final User? currentUser = await getIt<AuthRepository>().getCurrentUser();
+
+  // 현재 인증 상태를 확인
+  final isLoggedIn = (currentUser != null);
+
+  // 현재 위치를 확인
+  final location = state.matchedLocation;
+  final isInAuthFlow =
+      (location == Routes.signIn) || location.startsWith('${Routes.signIn}/');
+
+  // 비로그인 상태일 때,
+  // 인증 플로우 내 위치하면 아무 것도 하지 않고,
+  // 아닐 경우 로그인 화면으로 이동
+  if (!isLoggedIn) {
+    return isInAuthFlow ? null : Routes.signIn;
+  }
+
+  // 로그인 상태라면 메인 화면으로 이동
+  if (isInAuthFlow) return Routes.home;
+
+  return null;
+}

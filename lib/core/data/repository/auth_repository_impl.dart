@@ -29,13 +29,40 @@ class AuthRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<void> signOut() {
-    // TODO: implement signOut
-    throw UnimplementedError();
+  Future<void> signOut() async {
+    await _googleSignIn.signOut();
+    await _firebaseAuth.signOut();
+  }
+
+  @override
+  Future<void> deleteAccount() async {
+    // 1. 유저 로그인 상태 확인
+    final currentUser = _firebaseAuth.currentUser;
+
+    // 2. 로그인 정보 최신 상태로 갱신
+    // release에서는, attemptLightweightAuthentication 진행 중 사용자가 취소하면
+    // idToken이 null이 되어 비정상적인 credential 값이 생생되고,
+    // reauthenticateWithCredential에서 FirebaseAuthMultiFactorException 발생
+    final googleUser = await _googleSignIn.attemptLightweightAuthentication();
+    final googleAuth = googleUser?.authentication;
+
+    final credential = GoogleAuthProvider.credential(
+      idToken: googleAuth?.idToken,
+    );
+
+    await currentUser?.reauthenticateWithCredential(credential);
+
+    // 3. Firebase에서 해당 사용자 삭제
+    await currentUser?.delete();
   }
 
   @override
   Future<User?> getCurrentUser() async {
     return _firebaseAuth.currentUser;
+  }
+
+  @override
+  Stream<User?> authStateChanges() {
+    return _firebaseAuth.authStateChanges();
   }
 }
