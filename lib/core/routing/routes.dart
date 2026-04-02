@@ -24,6 +24,7 @@ class Routes {
   static const String profileEdit = 'profile-edit';
   static const String reservationHistory = 'history-reservations';
   static const String reviewHistory = 'history-reviews';
+  static const String accountSettings = 'account-settings';
   static const String notificationSettings = 'settings-notifications';
   static const String notices = 'notices';
   static const String terms = 'terms';
