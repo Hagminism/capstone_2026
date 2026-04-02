@@ -27,7 +27,7 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
-final _shellNavigatorKey = GlobalKey<NavigatorState>();
+final _myPageShellNavigatorKey = GlobalKey<NavigatorState>();
 
 final router = GoRouter(
   initialLocation: Routes.signIn,
@@ -121,7 +121,7 @@ final router = GoRouter(
           ],
         ),
         StatefulShellBranch(
-          navigatorKey: _shellNavigatorKey,
+          navigatorKey: _myPageShellNavigatorKey,
           routes: [
             GoRoute(
               path: Routes.myPage,
@@ -129,6 +129,7 @@ final router = GoRouter(
               routes: [
                 GoRoute(
                   path: Routes.notifications,
+                  parentNavigatorKey: _rootNavigatorKey,
                   builder: (context, state) => const Scaffold(
                     body: SafeArea(
                       child: Center(child: Text('알림 페이지')),
@@ -137,10 +138,12 @@ final router = GoRouter(
                 ),
                 GoRoute(
                   path: Routes.profileEdit,
+                  parentNavigatorKey: _rootNavigatorKey,
                   builder: (context, state) => const EditProfileScreen(),
                 ),
                 GoRoute(
                   path: Routes.reservationHistory,
+                  parentNavigatorKey: _rootNavigatorKey,
                   builder: (context, state) => const Scaffold(
                     body: SafeArea(
                       child: Center(child: Text('이용 내역 페이지')),
@@ -149,6 +152,7 @@ final router = GoRouter(
                 ),
                 GoRoute(
                   path: Routes.reviewHistory,
+                  parentNavigatorKey: _rootNavigatorKey,
                   builder: (context, state) => const Scaffold(
                     body: SafeArea(
                       child: Center(child: Text('리뷰 내역 페이지')),
@@ -156,8 +160,8 @@ final router = GoRouter(
                   ),
                 ),
                 GoRoute(
-                  parentNavigatorKey: _rootNavigatorKey,
                   path: Routes.accountSettings,
+                  parentNavigatorKey: _rootNavigatorKey,
                   builder: (context, state) {
                     return AccountSettingScreenRoot(
                       viewModel: getIt<AccountSettingViewModel>(),
@@ -166,6 +170,7 @@ final router = GoRouter(
                 ),
                 GoRoute(
                   path: Routes.notificationSettings,
+                  parentNavigatorKey: _rootNavigatorKey,
                   builder: (context, state) => const Scaffold(
                     body: SafeArea(
                       child: Center(child: Text('알림 설정 페이지')),
@@ -174,6 +179,7 @@ final router = GoRouter(
                 ),
                 GoRoute(
                   path: Routes.inquiry,
+                  parentNavigatorKey: _rootNavigatorKey,
                   builder: (context, state) => const Scaffold(
                     body: SafeArea(
                       child: Center(child: Text('1:1 문의 페이지')),
@@ -182,6 +188,7 @@ final router = GoRouter(
                 ),
                 GoRoute(
                   path: Routes.notices,
+                  parentNavigatorKey: _rootNavigatorKey,
                   builder: (context, state) => const Scaffold(
                     body: SafeArea(
                       child: Center(child: Text('공지사항 페이지')),
@@ -190,6 +197,7 @@ final router = GoRouter(
                 ),
                 GoRoute(
                   path: Routes.terms,
+                  parentNavigatorKey: _rootNavigatorKey,
                   builder: (context, state) => const Scaffold(
                     body: SafeArea(
                       child: Center(child: Text('이용약관 페이지')),
