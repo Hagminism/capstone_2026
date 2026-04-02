@@ -27,7 +27,7 @@ import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
 final _rootNavigatorKey = GlobalKey<NavigatorState>();
-final _shellNavigatorKey = GlobalKey<NavigatorState>();
+final _myPageShellNavigatorKey = GlobalKey<NavigatorState>();
 
 final router = GoRouter(
   initialLocation: Routes.signIn,
@@ -80,7 +80,6 @@ final router = GoRouter(
       },
       branches: [
         StatefulShellBranch(
-          navigatorKey: _shellNavigatorKey,
           routes: [
             GoRoute(
               path: Routes.home,
@@ -97,7 +96,6 @@ final router = GoRouter(
           ],
         ),
         StatefulShellBranch(
-          navigatorKey: _shellNavigatorKey,
           routes: [
             GoRoute(
               path: Routes.map,
@@ -107,7 +105,6 @@ final router = GoRouter(
           ],
         ),
         StatefulShellBranch(
-          navigatorKey: _shellNavigatorKey,
           routes: [
             GoRoute(
               path: Routes.bookmark,
@@ -124,7 +121,7 @@ final router = GoRouter(
           ],
         ),
         StatefulShellBranch(
-          navigatorKey: _shellNavigatorKey,
+          navigatorKey: _myPageShellNavigatorKey,
           routes: [
             GoRoute(
               path: Routes.myPage,
