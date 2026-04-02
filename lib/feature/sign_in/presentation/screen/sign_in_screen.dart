@@ -34,6 +34,7 @@ class SignInScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      const SizedBox(height: 40),
                       Text(
                         '모든 예약을 한눈에.\n관리는 더 쉽게.',
                         style: AppTextStyles.headline.copyWith(
@@ -105,7 +106,7 @@ class SignInScreen extends StatelessWidget {
                           onAction(SignInAction.tapSignInButton());
                         },
                       ),
-                      const SizedBox(height: 16),
+                      const SizedBox(height: 12),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -113,7 +114,6 @@ class SignInScreen extends StatelessWidget {
                             '아직 회원이 아니신가요? ',
                             style: AppTextStyles.body.copyWith(
                               color: AppColors.textPrimary,
-                              fontSize: 14,
                             ),
                           ),
                           TextButton(
@@ -129,14 +129,13 @@ class SignInScreen extends StatelessWidget {
                               '가입하기',
                               style: AppTextStyles.body.copyWith(
                                 color: AppColors.primary,
-                                fontSize: 14,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
                           ),
                         ],
                       ),
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 32),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -153,7 +152,6 @@ class SignInScreen extends StatelessWidget {
                             ' SNS 계정으로 간편하게 시작 ',
                             style: AppTextStyles.body.copyWith(
                               color: AppColors.textPrimary,
-                              fontSize: 14,
                             ),
                           ),
                           const SizedBox(width: 16),
@@ -167,7 +165,7 @@ class SignInScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 40),
+                      const SizedBox(height: 32),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
@@ -189,6 +187,7 @@ class SignInScreen extends StatelessWidget {
                           ),
                         ],
                       ),
+                      const SizedBox(height: 32),
                     ],
                   ),
                 ),

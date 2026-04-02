@@ -1,15 +1,16 @@
 import 'package:capstone_2026/ui/app_colors.dart';
+import 'package:capstone_2026/ui/app_text_styles.dart';
 import 'package:flutter/material.dart';
 
 class MyMenuSection extends StatelessWidget {
+  final String title;
+  final List<Widget> children;
+
   const MyMenuSection({
     required this.title,
     required this.children,
     super.key,
   });
-
-  final String title;
-  final List<Widget> children;
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +28,9 @@ class MyMenuSection extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 6),
             child: Text(
               title,
-              style: const TextStyle(
+              style: AppTextStyles.caption.copyWith(
                 fontSize: 13,
                 fontWeight: FontWeight.w700,
-                color: AppColors.textSecondary,
               ),
             ),
           ),

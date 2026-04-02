@@ -32,5 +32,20 @@ class AppColors {
   // CustomAppBar 관련 색상
   static const Color customAppBarPrimary = Color(0xFF333333);
 
+  // AccountActivitySection 관련 색상
+  static const Color accountActivitySectionHeader = Color(0xFF9CA3AF);
+  static const Color signOutLeading = Color(0xFFF3F4F6);
+  static const Color signOutLeadingContent = Color(0xFF9CA3AF);
+  static const Color signOutTitle = Color(0xFF4B5563);
+  static const Color signOutArrow = Color(0xFFD1D5DB);
+  static const Color deleteAccountLeading = Color(0xFFFEF2F2);
+  static const Color deleteAccountLeadingContent = Color(0xFFF87171);
+  static const Color deleteAccountTitle = Color(0xFFEF4444);
+  static const Color deleteAccountArrow = Color(0xFFFECACA);
+
+  // SecuritySection 관련 색상
+  static const Color securitySectionHeader = Color(0xFF9CA3AF);
+  static const Color securitySectionButtonBorder = Color(0xFFF3F4F6);
+
   static const Color divider = Color(0xFFE5E5EA);
 }
