@@ -26,8 +26,12 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
+final _rootNavigatorKey = GlobalKey<NavigatorState>();
+final _shellNavigatorKey = GlobalKey<NavigatorState>();
+
 final router = GoRouter(
   initialLocation: Routes.signIn,
+  navigatorKey: _rootNavigatorKey,
   routes: [
     GoRoute(
       path: Routes.signIn,
@@ -117,6 +121,7 @@ final router = GoRouter(
           ],
         ),
         StatefulShellBranch(
+          navigatorKey: _shellNavigatorKey,
           routes: [
             GoRoute(
               path: Routes.myPage,
@@ -151,6 +156,7 @@ final router = GoRouter(
                   ),
                 ),
                 GoRoute(
+                  parentNavigatorKey: _rootNavigatorKey,
                   path: Routes.accountSettings,
                   builder: (context, state) {
                     return AccountSettingScreenRoot(
