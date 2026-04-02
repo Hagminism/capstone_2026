@@ -12,6 +12,8 @@ sealed class MyPageAction with _$MyPageAction {
 
   const factory MyPageAction.viewReviewHistory() = ViewReviewHistory;
 
+  const factory MyPageAction.tapAccountSettings() = TapAccountSettings;
+
   const factory MyPageAction.tapNotificationSettings() = TapNotificationSettings;
 
   const factory MyPageAction.tapInquiry() = TapInquiry;

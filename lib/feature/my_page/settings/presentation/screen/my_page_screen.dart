@@ -1,8 +1,8 @@
-import 'package:capstone_2026/feature/my_page/presentation/component/my_menu_section.dart';
-import 'package:capstone_2026/feature/my_page/presentation/component/my_menu_tile.dart';
-import 'package:capstone_2026/feature/my_page/presentation/component/my_page_header.dart';
-import 'package:capstone_2026/feature/my_page/presentation/component/my_profile_card.dart';
-import 'package:capstone_2026/feature/my_page/presentation/screen/my_page_action.dart';
+import 'package:capstone_2026/feature/my_page/settings/presentation/component/my_menu_section.dart';
+import 'package:capstone_2026/feature/my_page/settings/presentation/component/my_menu_tile.dart';
+import 'package:capstone_2026/feature/my_page/settings/presentation/component/my_page_header.dart';
+import 'package:capstone_2026/feature/my_page/settings/presentation/component/my_profile_card.dart';
+import 'package:capstone_2026/feature/my_page/settings/presentation/screen/my_page_action.dart';
 import 'package:flutter/material.dart';
 
 class MyPageScreen extends StatelessWidget {
@@ -54,6 +54,11 @@ class MyPageScreen extends StatelessWidget {
               MyMenuSection(
                 title: '설정 및 안내',
                 children: [
+                  MyMenuTile(
+                    title: '계정 설정',
+                    icon: Icons.person_outline,
+                    onTap: () => onAction(MyPageAction.tapAccountSettings()),
+                  ),
                   MyMenuTile(
                     title: '알림 설정',
                     icon: Icons.notifications_active_outlined,
