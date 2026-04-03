@@ -12,6 +12,7 @@ import 'package:capstone_2026/feature/my_page/settings/presentation/screen/edit_
 import 'package:capstone_2026/feature/bookmark/presentation/screen/bookmark_screen.dart';
 import 'package:capstone_2026/feature/bookmark_store_detail/presentation/screen/bookmark_store_detail_screen.dart';
 import 'package:capstone_2026/feature/my_page/settings/presentation/screen/my_page_screen_root.dart';
+import 'package:capstone_2026/feature/my_page/settings/presentation/screen/my_page_view_model.dart';
 import 'package:capstone_2026/feature/select_auth_provider/core/presentation/component/scope/select_auth_provider_scope.dart';
 import 'package:capstone_2026/feature/select_auth_provider/presentation/screen/select_auth_provider_view_model.dart';
 import 'package:capstone_2026/feature/sign_in/core/presentation/component/scope/sign_in_scope.dart';
@@ -125,7 +126,9 @@ final router = GoRouter(
           routes: [
             GoRoute(
               path: Routes.myPage,
-              builder: (context, state) => const MyPageScreenRoot(),
+              builder: (context, state) => MyPageScreenRoot(
+                viewModel: getIt<MyPageViewModel>(),
+              ),
               routes: [
                 GoRoute(
                   path: Routes.notifications,
