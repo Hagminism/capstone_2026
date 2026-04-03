@@ -36,7 +36,15 @@ class MyProfileCard extends StatelessWidget {
             ),
             child: (photoUrl == null)
                 ? const Icon(Icons.person_outline_rounded)
-                : ClipOval(child: Image.network(photoUrl!)),
+                : ClipOval(
+                    child: Image.network(
+                      photoUrl!,
+                      errorBuilder: (context, error, stackTrace) {
+                        // photoUrl 값이 존재는 하는데, 유효하지 않은 값일 경우 기본 아이콘 표시.
+                        return const Icon(Icons.person_outline_rounded);
+                      },
+                    ),
+                  ),
           ),
           const SizedBox(width: 12),
           Expanded(
@@ -44,7 +52,7 @@ class MyProfileCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '${name ?? ''} 님',
+                  '${name ?? '사용자'} 님',
                   style: AppTextStyles.body.copyWith(
                     fontWeight: FontWeight.w600,
                   ),
