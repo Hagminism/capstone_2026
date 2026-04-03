@@ -14,6 +14,9 @@ class MyPageViewModel extends ChangeNotifier {
   MyPageState get state => _state;
 
   Future<void> fetchProfile() async {
+    // 중복 호출 방지
+    if (state.isLoading) return;
+
     _state = state.copyWith(isLoading: true);
     notifyListeners();
 
