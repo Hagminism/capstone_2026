@@ -3,13 +3,16 @@ import 'package:capstone_2026/feature/my_page/settings/presentation/component/my
 import 'package:capstone_2026/feature/my_page/settings/presentation/component/my_page_header.dart';
 import 'package:capstone_2026/feature/my_page/settings/presentation/component/my_profile_card.dart';
 import 'package:capstone_2026/feature/my_page/settings/presentation/screen/my_page_action.dart';
+import 'package:capstone_2026/feature/my_page/settings/presentation/screen/my_page_state.dart';
 import 'package:flutter/material.dart';
 
 class MyPageScreen extends StatelessWidget {
+  final MyPageState state;
   final void Function(MyPageAction) onAction;
 
   const MyPageScreen({
     super.key,
+    required this.state,
     required this.onAction,
   });
 
@@ -28,9 +31,10 @@ class MyPageScreen extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               MyProfileCard(
-                name: '이학민님',
-                email: 'hakmin@example.com',
+                name: state.userName,
+                email: state.email,
                 onTap: () => onAction(MyPageAction.editProfile()),
+                photoUrl: state.photoUrl,
               ),
               const SizedBox(height: 20),
               MyMenuSection(
